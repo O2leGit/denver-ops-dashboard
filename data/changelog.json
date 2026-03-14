@@ -1,1 +1,81 @@
-[]
+[
+  {
+    "timestamp": "2026-03-14T21:09:03.352Z",
+    "fromDate": "2026-03-13",
+    "toDate": "2026-03-13",
+    "fileName": "Nicole report- Fw_ Denver Operations _ 03.13.2026 _ Week 3 of Triage Plan.pdf",
+    "changeCount": 14,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$266,055",
+        "to": "$142,898"
+      },
+      {
+        "field": "kpis.shippedYesterday.status",
+        "from": "On Track",
+        "to": "Underperform"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "82.1%",
+        "to": "87.2%"
+      },
+      {
+        "field": "kpis.mtdOTD.status",
+        "from": "Underperform",
+        "to": "At Risk"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,108,157",
+        "to": "$1,122,422"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$51.1K",
+        "to": "$212.2K"
+      },
+      {
+        "field": "kpis.netDailyBurn.status",
+        "from": "Optimal",
+        "to": "At Risk"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,108,157",
+        "to": "$1,122,422"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$946,157",
+        "to": "$940,000"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "72%",
+        "to": "85%"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "92%",
+        "to": "90%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "98%",
+        "to": "88%"
+      },
+      {
+        "field": "actionItems",
+        "from": "4 items",
+        "to": "8 items (8 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Vector:Delayed,Cloud-Clone:Critical,Bio-Rad:At Risk",
+        "to": "Ireland Dry-Ice:Critical,Bethyl QC:At Risk,FedEx Clearance:Delayed"
+      }
+    ]
+  }
+]
