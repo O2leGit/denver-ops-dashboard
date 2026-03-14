@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "reportDate": "2026-03-13",
+    "dataPull": "Mar 13, 7:33 AM CT",
+    "week": "Week 3",
+    "planPhase": "WEEK 3 TRIAGE PLAN",
+    "reportRef": "3/12/26 Reporting",
+    "footerDate": "March 13, 2026",
+    "stockPrice": "$53.89"
+  },
+  "kpis": {
+    "shippedYesterday": {
+      "value": "$266,055",
+      "date": "3/11",
+      "target": "$188,823",
+      "status": "On Track"
+    },
+    "mtdOTD": {
+      "value": "82.1%",
+      "target": "95.0%",
+      "status": "Underperform"
+    },
+    "currentBacklog": {
+      "value": "$1,108,157",
+      "target": "$900,000",
+      "status": "At Risk"
+    },
+    "netDailyBurn": {
+      "value": "$51.1K",
+      "consecutiveDays": 3,
+      "status": "Optimal"
+    }
+  },
+  "recoveryBridge": {
+    "siteBacklog": "$1,108,157",
+    "oemConversion": {
+      "reduction": "-$320,000",
+      "totalSegment": "$745,798",
+      "barWidth": "29%"
+    },
+    "supplierInTransit": {
+      "reduction": "-$130,000",
+      "barWidth": "12%"
+    },
+    "labConfirmed": {
+      "reduction": "-$42,000",
+      "barWidth": "4%"
+    },
+    "intakeForecast": {
+      "addition": "+$330,000",
+      "barWidth": "30%"
+    },
+    "projectedClosing": "$946,157",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$46,157",
+    "closingBarWidth": "85%"
+  },
+  "operationalHealth": {
+    "workforceReadiness": {
+      "pct": 72,
+      "note": "Sarah/Karli/Loraine gaps"
+    },
+    "labCapacity": {
+      "pct": 92,
+      "note": "$42K produced 3/11"
+    },
+    "warehouseEfficiency": {
+      "pct": 98,
+      "note": "Receiving completed by 3pm"
+    }
+  },
+  "supplierCriticalPath": [
+    {
+      "name": "Vector",
+      "status": "Delayed",
+      "statusColor": "rose",
+      "timeline": "July Recovery",
+      "detail": "Polyclonal antibody QC failures. $94K open POs."
+    },
+    {
+      "name": "Cloud-Clone",
+      "status": "Critical",
+      "statusColor": "rose",
+      "timeline": "QC Fail",
+      "detail": "Item repro: 3-week lead time confirmed."
+    },
+    {
+      "name": "Bio-Rad",
+      "status": "At Risk",
+      "statusColor": "amber",
+      "timeline": "ETA 3/30",
+      "detail": "$15K Domestic revenue risk for Q3 close."
+    }
+  ],
+  "narrative": {
+    "quote": "Staffing constraints in the warehouse required direct support from office leadership today. Focus shifts to Vector supply recovery (July projection) and resolving reporting gaps. We achieved our 3rd consecutive burn day, though OTD requires item-level lead time accuracy to stabilize.",
+    "operationalRealities": [
+      {
+        "title": "Agile Staffing",
+        "detail": "Purchasing team redeployed to warehouse to manage heavy workload with zero loss to core functions."
+      },
+      {
+        "title": "Memphis Stall",
+        "detail": "4 cleared shipments currently stalled at FedEx Memphis hub; active management initiated."
+      }
+    ],
+    "strategyUpdates": [
+      "Vector Criticality: EP05419 recovery projected for July. GOAT immunization starting. Immediate manual packing slip agreement secured.",
+      "Cloud-Clone: Failed QC. 3-week lead time reproduction now active. Monitoring Ireland SO impact."
+    ]
+  },
+  "actionItems": [
+    {
+      "task": "Confirm kit labeling/eLab warehouse support plan",
+      "owner": "Nicole S.",
+      "impact": "Efficiency",
+      "impactType": "backlog",
+      "deadline": "MAR 12 MID",
+      "status": "Pending",
+      "tag": "New (3/12)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Investigate AX vs Power BI 16-line discrepancy",
+      "owner": "Sam (IT)",
+      "impact": "Visibility",
+      "impactType": "unknown",
+      "deadline": "MAR 13",
+      "status": "Pending",
+      "tag": "Strategic Priority",
+      "tagType": "carryover",
+      "priority": true
+    },
+    {
+      "task": "Add manufactured items to item-level LT analysis",
+      "owner": "Matt H.",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 13",
+      "status": "Pending",
+      "tag": "In Progress",
+      "tagType": "carryover",
+      "priority": false
+    },
+    {
+      "task": "Send prioritized Vector open order/stocking list",
+      "owner": "Matt H.",
+      "impact": "Supplier Risk",
+      "impactType": "backlog",
+      "deadline": "MAR 12 EOD",
+      "status": "Pending",
+      "tag": "New (3/12)",
+      "tagType": "new",
+      "priority": false
+    }
+  ],
+  "history": [
+    {
+      "date": "March 12, 2026",
+      "label": "Latest",
+      "shipped": "$266.1K",
+      "mtdOTD": "82.1%",
+      "health": "91%",
+      "backlogChange": "-$21.6K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 11, 2026",
+      "label": null,
+      "shipped": "$187.8K",
+      "mtdOTD": "83.5%",
+      "health": "91%",
+      "backlogChange": "-$25.2K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 10, 2026",
+      "label": null,
+      "shipped": "$306.1K",
+      "mtdOTD": "82.6%",
+      "health": "95%",
+      "backlogChange": "-$117K",
+      "backlogDirection": "down"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "denver-ops-dashboard",
+  "version": "1.0.0",
+  "description": "Denver Operations Recovery Dashboard - Bio-Techne/Novus Biologicals",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "pdf-parse": "^1.1.1",
+    "mammoth": "^1.8.0"
+  }
+}

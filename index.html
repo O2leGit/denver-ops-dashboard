@@ -15,16 +15,16 @@
         .text-tech-teal { color: #00A3AD; }
         .text-tech-blue { color: #004990; }
         .border-tech-blue { border-color: #004990; }
-        
+
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
         .animate-slide { animation: slideIn 0.6s ease-out forwards; }
-        
+
         .task-checked { text-decoration: line-through; opacity: 0.5; filter: grayscale(1); }
         .checkbox-active { background-color: #00A3AD; border-color: #00A3AD; color: white; }
-        
+
         .status-pill-pending { background-color: #FEF3C7; color: #92400E; }
         .status-pill-completed { background-color: #D1FAE5; color: #065F46; }
         .status-pill-late { background-color: #FEF2F2; color: #991B1B; border: 1px solid #FCA5A5; }
@@ -39,14 +39,14 @@
             border-radius: 4px;
         }
         .countdown-value { text-shadow: 0 0 10px rgba(0, 163, 173, 0.5); }
-        
+
         .impact-badge-otd { background-color: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
         .impact-badge-backlog { background-color: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
         .impact-badge-unknown { background-color: #FEF2F2; color: #DC2626; border: 1px solid #FECACA; }
 
         .history-card { border-left: 4px solid #CBD5E1; transition: all 0.3s ease; }
         .history-card:hover { border-left-color: #00A3AD; background-color: #F8FAFC; }
-        
+
         .carryover-tag { background-color: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
     </style>
 </head>
@@ -55,24 +55,24 @@
     <!-- EXECUTIVE HEADER -->
     <section class="bg-tech-navy text-white pb-20 pt-8 px-6 md:px-12 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-tech-blue opacity-20 skew-x-12 translate-x-20 pointer-events-none"></div>
-        
+
         <div class="max-w-7xl mx-auto relative z-10">
             <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                 <div class="space-y-4">
                     <div class="flex items-center gap-4 mb-2">
                         <span class="text-2xl font-black tracking-tighter uppercase italic">bio-techne</span>
                         <div class="h-6 w-px bg-white/20"></div>
-                        <span class="text-xs font-bold tracking-widest text-tech-teal uppercase">Nasdaq: TECH • $53.89</span>
+                        <span id="header-stock" class="text-xs font-bold tracking-widest text-tech-teal uppercase">Nasdaq: TECH • $53.89</span>
                     </div>
                     <h1 class="text-4xl font-light tracking-tight">Denver Operations <span class="font-bold underline decoration-[#00A3AD] underline-offset-8">Recovery Dashboard</span></h1>
                     <div class="flex flex-wrap gap-4 items-center">
-                        <p class="text-blue-200/60 text-sm font-medium tracking-wide italic">INTERNAL DISTRIBUTION ONLY • WEEK 3 TRIAGE PLAN</p>
+                        <p id="header-plan" class="text-blue-200/60 text-sm font-medium tracking-wide italic">INTERNAL DISTRIBUTION ONLY • WEEK 3 TRIAGE PLAN</p>
                         <span class="px-2 py-0.5 bg-tech-teal text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-sm">Fiscal Q3 Closing</span>
-                        
+
                         <!-- DATA FRESHNESS INDICATOR -->
                         <div class="flex items-center gap-1.5 px-2 py-0.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-bold text-blue-100">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            Data Pull: Mar 13, 7:33 AM CT
+                            <span id="header-datapull">Data Pull: --</span>
                         </div>
                     </div>
                 </div>
@@ -100,58 +100,19 @@
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- KPI CARDS (Updated for 03.12.2026 Sync) -->
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-tech-teal/20 text-tech-teal rounded-sm"><i data-lucide="truck" class="w-5 h-5"></i></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">On Track</span>
-                    </div>
-                    <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Shipped Yesterday (3/11)</p>
-                    <h3 class="text-3xl font-bold tracking-tight">$266,055</h3>
-                    <p class="text-tech-teal text-xs font-bold mt-2">Target: $188,823</p>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-tech-teal/20 text-tech-teal rounded-sm"><i data-lucide="clock" class="w-5 h-5"></i></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-rose-500/20 text-rose-400 border border-rose-500/30">Underperform</span>
-                    </div>
-                    <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-1">MTD OTD Performance</p>
-                    <h3 class="text-3xl font-bold tracking-tight">82.1%</h3>
-                    <p class="text-tech-teal text-xs font-bold mt-2">Target: 95.0%</p>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-tech-teal/20 text-tech-teal rounded-sm"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-rose-500/20 text-rose-400 border border-rose-500/30">At Risk</span>
-                    </div>
-                    <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Current Backlog</p>
-                    <h3 class="text-3xl font-bold tracking-tight">$1,108,157</h3>
-                    <p class="text-tech-teal text-xs font-bold mt-2">Target: $900,000</p>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="p-2 bg-tech-teal/20 text-tech-teal rounded-sm"><i data-lucide="activity" class="w-5 h-5"></i></div>
-                        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Optimal</span>
-                    </div>
-                    <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Net Daily Burn</p>
-                    <h3 class="text-3xl font-bold tracking-tight">$51.1K</h3>
-                    <p class="text-tech-teal text-xs font-bold mt-2">Consecutive Pos: 3 Days</p>
-                </div>
+            <div id="kpi-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- KPI cards rendered by JS -->
             </div>
         </div>
     </section>
 
     <!-- ANALYTICS SECTION -->
     <main class="max-w-7xl mx-auto px-6 md:px-12 -mt-10 pb-20 space-y-10">
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+
             <div class="lg:col-span-2 space-y-8">
-                
+
                 <!-- RECOVERY BRIDGE -->
                 <div class="bg-white p-8 border border-slate-200 shadow-xl animate-slide">
                     <div class="flex justify-between items-center mb-8 border-b border-slate-100 pb-4">
@@ -161,76 +122,14 @@
                         </h3>
                         <div class="flex items-center gap-2">
                             <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Forecast Status:</span>
-                            <span class="text-[10px] font-black bg-rose-50 text-rose-700 px-3 py-1 rounded tracking-widest uppercase border border-rose-100 flex items-center gap-2">
-                                <i data-lucide="alert-circle" class="w-3 h-3"></i> Projected Miss
+                            <span id="bridge-forecast-badge" class="text-[10px] font-black bg-rose-50 text-rose-700 px-3 py-1 rounded tracking-widest uppercase border border-rose-100 flex items-center gap-2">
+                                <i data-lucide="alert-circle" class="w-3 h-3"></i> <span id="bridge-forecast-status">--</span>
                             </span>
                         </div>
                     </div>
 
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-wide">
-                                <span class="text-slate-500">Current Site Backlog</span>
-                                <span class="text-tech-navy">$1,108,157</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                <div class="bg-tech-navy h-full w-full"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
-                                <span class="flex items-center gap-2">OEM Strategy Conversion <span class="text-[9px] font-black bg-emerald-50 px-1 rounded tracking-widest italic text-emerald-800">TOTAL SEGMENT: $745,798</span></span>
-                                <span>-$320,000</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                <div class="bg-emerald-500 h-full" style="width: 29%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
-                                <span class="flex items-center gap-2"><i data-lucide="truck" class="w-3 h-3"></i> Supplier In-Transit Inventory</span>
-                                <span>-$130,000</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                <div class="bg-emerald-400 h-full" style="width: 12%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
-                                <span class="flex items-center gap-2"><i data-lucide="flask-conical" class="w-3 h-3"></i> Lab Owned / Confirmed Releases</span>
-                                <span>-$42,000</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                <div class="bg-emerald-400 h-full" style="width: 4%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-2 text-rose-600 uppercase tracking-wide">
-                                <span class="flex items-center gap-2">Projected Q3 Intake Forecast <i data-lucide="trending-up" class="w-3 h-3"></i></span>
-                                <span>+$330,000</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                                <div class="bg-rose-400 h-full" style="width: 30%"></div>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 mt-2">
-                            <div class="flex justify-between text-xs font-bold mb-2">
-                                <span class="text-rose-700 font-black uppercase tracking-wider">Projected Q3 Closing Backlog</span>
-                                <span class="text-rose-700 font-black">$946,157</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden border border-rose-200 p-0.5">
-                                <div class="bg-rose-600 h-full" style="width: 85%"></div>
-                            </div>
-                            <div class="flex justify-between mt-2">
-                                <p class="text-[10px] text-rose-600 font-bold italic tracking-tight">Forecasted miss of $46,157 against $900,000 goal</p>
-                                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Q3 Target: $900,000</p>
-                            </div>
-                        </div>
+                    <div id="bridge-bars" class="space-y-6">
+                        <!-- Recovery bridge bars rendered by JS -->
                     </div>
                 </div>
 
@@ -242,7 +141,7 @@
                                 <i data-lucide="list-checks" class="text-tech-teal w-6 h-6"></i>
                                 Strategic Execution Roadmap
                             </h3>
-                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mt-1">Recovery Phase: Week 3</p>
+                            <p id="roadmap-phase" class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mt-1">Recovery Phase: --</p>
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="text-right">
@@ -256,65 +155,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 gap-3" id="action-list">
-                        <!-- ACTION ITEM: Warehouse Support -->
-                        <div class="flex flex-col md:grid md:grid-cols-12 items-center gap-4 p-4 bg-white hover:bg-slate-50 transition-all cursor-pointer group rounded-lg border border-slate-100" onclick="toggleTask(this)">
-                            <div class="md:col-span-5 flex items-center gap-4">
-                                <div class="w-6 h-6 border-2 border-slate-200 rounded flex items-center justify-center checkbox-element shrink-0 group-hover:border-tech-teal"><i data-lucide="check" class="w-4 h-4 hidden"></i></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800 task-text leading-snug tracking-tight">Confirm kit labeling/eLab warehouse support plan</p>
-                                    <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-100 text-[7px] font-black uppercase mt-1 inline-block">New (3/12)</span>
-                                </div>
-                            </div>
-                            <div class="md:col-span-2 flex justify-center"><span class="px-2 py-1 rounded bg-tech-navy/5 text-tech-navy text-[9px] font-black uppercase tracking-tighter">Nicole S.</span></div>
-                            <div class="md:col-span-2 flex justify-center"><span class="impact-badge-backlog px-2 py-1 rounded text-[9px] font-black uppercase tracking-tighter">Efficiency</span></div>
-                            <div class="md:col-span-2 flex justify-end"><span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded uppercase">MAR 12 MID</span></div>
-                            <div class="md:col-span-1 flex justify-end"><span class="status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase">Pending</span></div>
-                        </div>
-
-                        <!-- ACTION ITEM: PBI vs AX Gap -->
-                        <div class="flex flex-col md:grid md:grid-cols-12 items-center gap-4 p-4 bg-white hover:bg-slate-50 transition-all cursor-pointer group rounded-lg border border-slate-100 border-l-4 border-l-tech-blue" onclick="toggleTask(this)">
-                            <div class="md:col-span-5 flex items-center gap-4">
-                                <div class="w-6 h-6 border-2 border-slate-200 rounded flex items-center justify-center checkbox-element shrink-0 group-hover:border-tech-teal"><i data-lucide="check" class="w-4 h-4 hidden"></i></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800 task-text leading-snug tracking-tight">Investigate AX vs Power BI 16-line discrepancy</p>
-                                    <span class="carryover-tag px-1.5 py-0.5 rounded text-[7px] font-black uppercase mt-1 inline-block tracking-tighter italic">Strategic Priority</span>
-                                </div>
-                            </div>
-                            <div class="md:col-span-2 flex justify-center"><span class="px-2 py-1 rounded bg-tech-navy/5 text-tech-navy text-[9px] font-black uppercase tracking-tighter">Sam (IT)</span></div>
-                            <div class="md:col-span-2 flex justify-center"><span class="impact-badge-unknown px-2 py-1 rounded text-[9px] font-black uppercase tracking-tighter">Visibility</span></div>
-                            <div class="md:col-span-2 flex justify-end"><span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded uppercase">MAR 13</span></div>
-                            <div class="md:col-span-1 flex justify-end"><span class="status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase">Pending</span></div>
-                        </div>
-
-                        <!-- ACTION ITEM: Lead Time Corrections -->
-                        <div class="flex flex-col md:grid md:grid-cols-12 items-center gap-4 p-4 bg-white hover:bg-slate-50 transition-all cursor-pointer group rounded-lg border border-slate-100" onclick="toggleTask(this)">
-                            <div class="md:col-span-5 flex items-center gap-4">
-                                <div class="w-6 h-6 border-2 border-slate-200 rounded flex items-center justify-center checkbox-element shrink-0 group-hover:border-tech-teal"><i data-lucide="check" class="w-4 h-4 hidden"></i></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800 task-text leading-snug tracking-tight">Add manufactured items to item-level LT analysis</p>
-                                    <span class="carryover-tag px-1.5 py-0.5 rounded text-[7px] font-black uppercase mt-1 inline-block tracking-tighter">In Progress</span>
-                                </div>
-                            </div>
-                            <div class="md:col-span-2 flex justify-center"><span class="px-2 py-1 rounded bg-tech-navy/5 text-tech-navy text-[9px] font-black uppercase tracking-tighter">Matt H.</span></div>
-                            <div class="md:col-span-2 flex justify-center"><span class="impact-badge-otd px-2 py-1 rounded text-[9px] font-black uppercase tracking-tighter">OTD Accur.</span></div>
-                            <div class="md:col-span-2 flex justify-end"><span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded uppercase">MAR 13</span></div>
-                            <div class="md:col-span-1 flex justify-end"><span class="status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase">Pending</span></div>
-                        </div>
-
-                        <!-- ACTION ITEM: Vector Order List -->
-                        <div class="flex flex-col md:grid md:grid-cols-12 items-center gap-4 p-4 bg-white hover:bg-slate-50 transition-all cursor-pointer group rounded-lg border border-slate-100" onclick="toggleTask(this)">
-                            <div class="md:col-span-5 flex items-center gap-4">
-                                <div class="w-6 h-6 border-2 border-slate-200 rounded flex items-center justify-center checkbox-element shrink-0 group-hover:border-tech-teal"><i data-lucide="check" class="w-4 h-4 hidden"></i></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800 task-text leading-snug tracking-tight">Send prioritized Vector open order/stocking list</p>
-                                    <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-100 text-[7px] font-black uppercase mt-1 inline-block">New (3/12)</span>
-                                </div>
-                            </div>
-                            <div class="md:col-span-2 flex justify-center"><span class="px-2 py-1 rounded bg-tech-navy/5 text-tech-navy text-[9px] font-black uppercase tracking-tighter">Matt H.</span></div>
-                            <div class="md:col-span-2 flex justify-center"><span class="impact-badge-backlog px-2 py-1 rounded text-[9px] font-black uppercase tracking-tighter">Supplier Risk</span></div>
-                            <div class="md:col-span-2 flex justify-end"><span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded uppercase">MAR 12 EOD</span></div>
-                            <div class="md:col-span-1 flex justify-end"><span class="status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase">Pending</span></div>
-                        </div>
+                        <!-- Action items rendered by JS -->
                     </div>
                 </div>
 
@@ -324,21 +165,21 @@
                         <div class="w-10 h-10 rounded-full bg-tech-teal/10 flex items-center justify-center text-tech-teal"><i data-lucide="message-square-quote" class="w-6 h-6"></i></div>
                         <div><h3 class="text-xl font-bold text-tech-navy">Sr. Manager's Narrative</h3><p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Nicole Sardo, MBA</p></div>
                     </div>
-                    <p class="text-sm font-medium text-slate-700 leading-relaxed mb-8 bg-slate-50 p-6 border-l-4 border-tech-teal italic">
-                        "Staffing constraints in the warehouse required direct support from office leadership today. Focus shifts to Vector supply recovery (July projection) and resolving reporting gaps. We achieved our 3rd consecutive burn day, though OTD requires item-level lead time accuracy to stabilize."
+                    <p id="narrative-quote" class="text-sm font-medium text-slate-700 leading-relaxed mb-8 bg-slate-50 p-6 border-l-4 border-tech-teal italic">
+                        Loading...
                     </p>
                     <div class="grid md:grid-cols-2 gap-10">
                         <div class="space-y-6 text-xs text-slate-600">
                             <h4 class="text-[11px] font-black text-tech-blue uppercase tracking-widest mb-4 flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Operational Realities</h4>
-                            <ul class="space-y-4">
-                                <li class="pl-4 border-l-2 border-slate-100"><span class="font-bold block mb-1 text-slate-800 text-[10px]">Agile Staffing</span>Purchasing team redeployed to warehouse to manage heavy workload with zero loss to core functions.</li>
-                                <li class="pl-4 border-l-2 border-slate-100"><span class="font-bold block mb-1 text-slate-800 text-[10px]">Memphis Stall</span>4 cleared shipments currently stalled at FedEx Memphis hub; active management initiated.</li>
+                            <ul id="narrative-realities" class="space-y-4">
+                                <!-- Rendered by JS -->
                             </ul>
                         </div>
                         <div class="space-y-6 text-xs text-slate-600">
                             <h4 class="text-[11px] font-black text-tech-teal uppercase tracking-widest mb-4 flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> Strategy Updates</h4>
-                            <p class="leading-relaxed font-medium mb-4">Vector Criticality: EP05419 recovery projected for July. GOAT immunization starting. Immediate manual packing slip agreement secured.</p>
-                            <p class="leading-relaxed font-medium">Cloud-Clone: Failed QC. 3-week lead time reproduction now active. Monitoring Ireland SO impact.</p>
+                            <div id="narrative-strategy">
+                                <!-- Rendered by JS -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -348,43 +189,15 @@
             <div class="space-y-8 animate-slide">
                 <div class="bg-tech-navy text-white p-8 shadow-xl">
                     <h3 class="text-xs font-black text-tech-teal uppercase tracking-widest mb-8 border-b border-white/10 pb-2">Operational Health Index</h3>
-                    <div class="space-y-8">
-                        <div>
-                            <div class="flex justify-between text-[10px] font-bold mb-2 uppercase tracking-wider"><span>Workforce Readiness</span><span>72%</span></div>
-                            <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden"><div class="h-full bg-tech-teal" style="width: 72%"></div></div>
-                            <p class="text-[9px] text-white/40 mt-1 uppercase font-bold tracking-widest italic">Sarah/Karli/Loraine gaps</p>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[10px] font-bold mb-2 uppercase tracking-wider"><span>Lab Capacity</span><span>92%</span></div>
-                            <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden"><div class="h-full bg-tech-teal" style="width: 92%"></div></div>
-                            <p class="text-[9px] text-white/40 mt-1 uppercase font-bold tracking-widest italic">$42K produced 3/11</p>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[10px] font-bold mb-2 uppercase tracking-wider"><span>Warehouse Effic.</span><span>98%</span></div>
-                            <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden"><div class="h-full bg-tech-teal" style="width: 98%"></div></div>
-                            <p class="text-[9px] text-white/40 mt-1 uppercase font-bold tracking-widest italic">Receiving completed by 3pm</p>
-                        </div>
+                    <div id="health-index" class="space-y-8">
+                        <!-- Rendered by JS -->
                     </div>
                 </div>
 
                 <div class="bg-white border border-slate-200 p-8 shadow-sm">
                     <h3 class="text-[11px] font-black text-slate-900 uppercase tracking-widest mb-6">Supplier Critical Path</h3>
-                    <div class="space-y-6 text-xs font-medium">
-                        <div class="border-b border-slate-50 pb-4">
-                            <div class="flex justify-between items-start mb-1"><span class="text-xs font-black text-slate-800 uppercase">Vector</span><span class="text-[8px] px-2 py-0.5 rounded font-black uppercase bg-rose-600 text-white">Delayed</span></div>
-                            <p class="text-[10px] font-bold text-tech-teal mb-1">July Recovery</p>
-                            <p class="text-[10px] text-slate-500 leading-tight">Polyclonal antibody QC failures. $94K open POs.</p>
-                        </div>
-                        <div class="border-b border-slate-50 pb-4">
-                            <div class="flex justify-between items-start mb-1"><span class="text-xs font-black text-slate-800 uppercase">Cloud-Clone</span><span class="text-[8px] px-2 py-0.5 rounded font-black uppercase bg-rose-600 text-white">Critical</span></div>
-                            <p class="text-[10px] font-bold text-tech-teal mb-1">QC Fail</p>
-                            <p class="text-[10px] text-slate-500 leading-tight">Item repro: 3-week lead time confirmed.</p>
-                        </div>
-                        <div class="pb-2">
-                            <div class="flex justify-between items-start mb-1"><span class="text-xs font-black text-slate-800 uppercase">Bio-Rad</span><span class="text-[8px] px-2 py-0.5 rounded font-black uppercase bg-amber-400 text-white">At Risk</span></div>
-                            <p class="text-[10px] font-bold text-tech-teal mb-1">ETA 3/30</p>
-                            <p class="text-[10px] text-slate-500 leading-tight italic">$15K Domestic revenue risk for Q3 close.</p>
-                        </div>
+                    <div id="supplier-path" class="space-y-6 text-xs font-medium">
+                        <!-- Rendered by JS -->
                     </div>
                 </div>
             </div>
@@ -398,43 +211,8 @@
                     Performance History & Trend Tracking
                 </h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 3/12 Card -->
-                <div class="history-card p-6 bg-slate-50/50 rounded-r-lg border-y border-r border-slate-200 shadow-sm border-l-tech-teal">
-                    <div class="flex justify-between items-center mb-4">
-                        <p class="text-[10px] font-black text-tech-teal uppercase tracking-widest">March 12, 2026 (Latest)</p>
-                        <span class="text-[10px] font-black text-emerald-600 flex items-center gap-1"><i data-lucide="trending-down" class="w-3 h-3"></i> -$21.6K Backlog</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Shipped</p><p class="text-xs font-bold text-slate-800">$266.1K</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">MTD OTD</p><p class="text-xs font-bold text-slate-800">82.1%</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Health</p><p class="text-xs font-bold text-slate-800">91%</p></div>
-                    </div>
-                </div>
-                <!-- 3/11 Card -->
-                <div class="history-card p-6 bg-slate-50/50 rounded-r-lg border-y border-r border-slate-200 shadow-sm opacity-80">
-                    <div class="flex justify-between items-center mb-4 text-slate-400">
-                        <p class="text-[10px] font-black uppercase tracking-widest">March 11, 2026</p>
-                        <span class="text-[10px] font-black flex items-center gap-1"><i data-lucide="trending-down" class="w-3 h-3"></i> -$25.2K Backlog</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2 opacity-60">
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Shipped</p><p class="text-xs font-bold text-slate-800">$187.8K</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">MTD OTD</p><p class="text-xs font-bold text-slate-800">83.5%</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Health</p><p class="text-xs font-bold text-slate-800">91%</p></div>
-                    </div>
-                </div>
-                <!-- 3/10 Card -->
-                <div class="history-card p-6 bg-slate-50/50 rounded-r-lg border-y border-r border-slate-200 shadow-sm opacity-60">
-                    <div class="flex justify-between items-center mb-4 text-slate-400">
-                        <p class="text-[10px] font-black uppercase tracking-widest">March 10, 2026</p>
-                        <span class="text-[10px] font-black flex items-center gap-1"><i data-lucide="trending-down" class="w-3 h-3"></i> -$117K Backlog</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2 opacity-40">
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Shipped</p><p class="text-xs font-bold text-slate-800">$306.1K</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">MTD OTD</p><p class="text-xs font-bold text-slate-800">82.6%</p></div>
-                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Health</p><p class="text-xs font-bold text-slate-800">95%</p></div>
-                    </div>
-                </div>
+            <div id="history-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Rendered by JS -->
             </div>
         </div>
     </main>
@@ -443,8 +221,8 @@
     <footer class="bg-white border-t border-slate-200 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
             <div class="space-y-4">
-                <div class="flex flex-col"><span class="text-2xl font-black tracking-tighter text-tech-blue">bio-techne</span><span class="text-[9px] font-bold text-tech-teal tracking-widest -mt-1 uppercase italic tracking-[0.4em]">Precision Operations Intelligence™</span></div>
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-relaxed">Denver Site-01 Executive Dashboard • Centennial, CO 80112<br>March 13, 2026 Sync (Ref: 3/12/26 Reporting)</p>
+                <div class="flex flex-col"><span class="text-2xl font-black tracking-tighter text-tech-blue">bio-techne</span><span class="text-[9px] font-bold text-tech-teal tracking-widest -mt-1 uppercase italic tracking-[0.4em]">Precision Operations Intelligence&trade;</span></div>
+                <p id="footer-info" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-relaxed">Denver Site-01 Executive Dashboard &bull; Centennial, CO 80112</p>
             </div>
             <div class="flex items-center gap-10 border-l border-slate-100 pl-10">
                 <div class="text-right border-r border-slate-200 pr-10">
@@ -453,14 +231,219 @@
                 </div>
                 <div class="flex flex-col items-end">
                     <span class="text-[10px] font-black text-tech-teal uppercase tracking-widest mb-1">Nasdaq: TECH</span>
-                    <div class="flex items-center gap-2 text-xl font-black text-tech-blue">$53.89 <i data-lucide="arrow-up-right" class="text-emerald-500 w-5 h-5"></i></div>
+                    <div id="footer-stock" class="flex items-center gap-2 text-xl font-black text-tech-blue">$53.89 <i data-lucide="arrow-up-right" class="text-emerald-500 w-5 h-5"></i></div>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // ── Data Loading ──
+        async function loadDashboardData() {
+            try {
+                const resp = await fetch('data/dashboard-data.json?' + Date.now());
+                const d = await resp.json();
+                renderDashboard(d);
+            } catch (e) {
+                console.error('Failed to load dashboard data:', e);
+            }
+        }
+
+        function renderDashboard(d) {
+            // ── Header ──
+            document.getElementById('header-stock').textContent = 'Nasdaq: TECH \u2022 ' + d.meta.stockPrice;
+            document.getElementById('header-plan').textContent = 'INTERNAL DISTRIBUTION ONLY \u2022 ' + d.meta.planPhase;
+            document.getElementById('header-datapull').textContent = 'Data Pull: ' + d.meta.dataPull;
+
+            // ── KPI Cards ──
+            const kpiConfig = [
+                { key: 'shippedYesterday', icon: 'truck', label: 'Shipped Yesterday (' + d.kpis.shippedYesterday.date + ')', targetLabel: 'Target' },
+                { key: 'mtdOTD', icon: 'clock', label: 'MTD OTD Performance', targetLabel: 'Target' },
+                { key: 'currentBacklog', icon: 'bar-chart-3', label: 'Current Backlog', targetLabel: 'Target' },
+                { key: 'netDailyBurn', icon: 'activity', label: 'Net Daily Burn', targetLabel: null }
+            ];
+            const kpiContainer = document.getElementById('kpi-cards');
+            kpiContainer.innerHTML = kpiConfig.map(cfg => {
+                const kpi = d.kpis[cfg.key];
+                const statusColors = getStatusColors(kpi.status);
+                const targetText = cfg.key === 'netDailyBurn'
+                    ? 'Consecutive Pos: ' + kpi.consecutiveDays + ' Days'
+                    : cfg.targetLabel + ': ' + kpi.target;
+                return `
+                <div class="bg-white/5 backdrop-blur-md border border-white/10 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-2 bg-tech-teal/20 text-tech-teal rounded-sm"><i data-lucide="${cfg.icon}" class="w-5 h-5"></i></div>
+                        <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm ${statusColors.bg} ${statusColors.text} ${statusColors.border}">${kpi.status}</span>
+                    </div>
+                    <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-1">${cfg.label}</p>
+                    <h3 class="text-3xl font-bold tracking-tight">${kpi.value}</h3>
+                    <p class="text-tech-teal text-xs font-bold mt-2">${targetText}</p>
+                </div>`;
+            }).join('');
+
+            // ── Recovery Bridge ──
+            const rb = d.recoveryBridge;
+            document.getElementById('bridge-forecast-status').textContent = rb.forecastStatus;
+            document.getElementById('bridge-bars').innerHTML = `
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-wide">
+                        <span class="text-slate-500">Current Site Backlog</span>
+                        <span class="text-tech-navy">${rb.siteBacklog}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="bg-tech-navy h-full w-full"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
+                        <span class="flex items-center gap-2">OEM Strategy Conversion <span class="text-[9px] font-black bg-emerald-50 px-1 rounded tracking-widest italic text-emerald-800">TOTAL SEGMENT: ${rb.oemConversion.totalSegment}</span></span>
+                        <span>${rb.oemConversion.reduction}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full" style="width: ${rb.oemConversion.barWidth}"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
+                        <span class="flex items-center gap-2"><i data-lucide="truck" class="w-3 h-3"></i> Supplier In-Transit Inventory</span>
+                        <span>${rb.supplierInTransit.reduction}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="bg-emerald-400 h-full" style="width: ${rb.supplierInTransit.barWidth}"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-2 text-emerald-600 uppercase tracking-wide">
+                        <span class="flex items-center gap-2"><i data-lucide="flask-conical" class="w-3 h-3"></i> Lab Owned / Confirmed Releases</span>
+                        <span>${rb.labConfirmed.reduction}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="bg-emerald-400 h-full" style="width: ${rb.labConfirmed.barWidth}"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs font-bold mb-2 text-rose-600 uppercase tracking-wide">
+                        <span class="flex items-center gap-2">Projected Q3 Intake Forecast <i data-lucide="trending-up" class="w-3 h-3"></i></span>
+                        <span>${rb.intakeForecast.addition}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                        <div class="bg-rose-400 h-full" style="width: ${rb.intakeForecast.barWidth}"></div>
+                    </div>
+                </div>
+                <div class="pt-4 mt-2">
+                    <div class="flex justify-between text-xs font-bold mb-2">
+                        <span class="text-rose-700 font-black uppercase tracking-wider">Projected Q3 Closing Backlog</span>
+                        <span class="text-rose-700 font-black">${rb.projectedClosing}</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden border border-rose-200 p-0.5">
+                        <div class="bg-rose-600 h-full" style="width: ${rb.closingBarWidth}"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <p class="text-[10px] text-rose-600 font-bold italic tracking-tight">Forecasted miss of ${rb.missAmount} against $900,000 goal</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Q3 Target: $900,000</p>
+                    </div>
+                </div>`;
+
+            // ── Action Items ──
+            document.getElementById('roadmap-phase').textContent = 'Recovery Phase: ' + d.meta.week;
+            const actionList = document.getElementById('action-list');
+            actionList.innerHTML = d.actionItems.map(item => {
+                const priorityClass = item.priority ? ' border-l-4 border-l-tech-blue' : '';
+                const tagClass = item.tagType === 'new'
+                    ? 'px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-100 text-[7px] font-black uppercase mt-1 inline-block'
+                    : 'carryover-tag px-1.5 py-0.5 rounded text-[7px] font-black uppercase mt-1 inline-block tracking-tighter' + (item.tagType === 'carryover' && item.tag === 'Strategic Priority' ? ' italic' : '');
+                const impactClass = 'impact-badge-' + item.impactType;
+                return `
+                <div class="flex flex-col md:grid md:grid-cols-12 items-center gap-4 p-4 bg-white hover:bg-slate-50 transition-all cursor-pointer group rounded-lg border border-slate-100${priorityClass}" onclick="toggleTask(this)">
+                    <div class="md:col-span-5 flex items-center gap-4">
+                        <div class="w-6 h-6 border-2 border-slate-200 rounded flex items-center justify-center checkbox-element shrink-0 group-hover:border-tech-teal"><i data-lucide="check" class="w-4 h-4 hidden"></i></div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-800 task-text leading-snug tracking-tight">${item.task}</p>
+                            <span class="${tagClass}">${item.tag}</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center"><span class="px-2 py-1 rounded bg-tech-navy/5 text-tech-navy text-[9px] font-black uppercase tracking-tighter">${item.owner}</span></div>
+                    <div class="md:col-span-2 flex justify-center"><span class="${impactClass} px-2 py-1 rounded text-[9px] font-black uppercase tracking-tighter">${item.impact}</span></div>
+                    <div class="md:col-span-2 flex justify-end"><span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded uppercase">${item.deadline}</span></div>
+                    <div class="md:col-span-1 flex justify-end"><span class="status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase">${item.status}</span></div>
+                </div>`;
+            }).join('');
+
+            // ── Narrative ──
+            document.getElementById('narrative-quote').textContent = '\u201C' + d.narrative.quote + '\u201D';
+            document.getElementById('narrative-realities').innerHTML = d.narrative.operationalRealities.map(r =>
+                `<li class="pl-4 border-l-2 border-slate-100"><span class="font-bold block mb-1 text-slate-800 text-[10px]">${r.title}</span>${r.detail}</li>`
+            ).join('');
+            document.getElementById('narrative-strategy').innerHTML = d.narrative.strategyUpdates.map(s =>
+                `<p class="leading-relaxed font-medium mb-4">${s}</p>`
+            ).join('');
+
+            // ── Operational Health ──
+            const health = d.operationalHealth;
+            document.getElementById('health-index').innerHTML = [
+                { label: 'Workforce Readiness', ...health.workforceReadiness },
+                { label: 'Lab Capacity', ...health.labCapacity },
+                { label: 'Warehouse Effic.', ...health.warehouseEfficiency }
+            ].map(h => `
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2 uppercase tracking-wider"><span>${h.label}</span><span>${h.pct}%</span></div>
+                    <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden"><div class="h-full bg-tech-teal" style="width: ${h.pct}%"></div></div>
+                    <p class="text-[9px] text-white/40 mt-1 uppercase font-bold tracking-widest italic">${h.note}</p>
+                </div>`).join('');
+
+            // ── Supplier Critical Path ──
+            document.getElementById('supplier-path').innerHTML = d.supplierCriticalPath.map((s, i) => {
+                const isLast = i === d.supplierCriticalPath.length - 1;
+                const borderClass = isLast ? 'pb-2' : 'border-b border-slate-50 pb-4';
+                const statusBg = s.statusColor === 'rose' ? 'bg-rose-600' : 'bg-amber-400';
+                return `
+                <div class="${borderClass}">
+                    <div class="flex justify-between items-start mb-1"><span class="text-xs font-black text-slate-800 uppercase">${s.name}</span><span class="text-[8px] px-2 py-0.5 rounded font-black uppercase ${statusBg} text-white">${s.status}</span></div>
+                    <p class="text-[10px] font-bold text-tech-teal mb-1">${s.timeline}</p>
+                    <p class="text-[10px] text-slate-500 leading-tight">${s.detail}</p>
+                </div>`;
+            }).join('');
+
+            // ── History Cards ──
+            document.getElementById('history-cards').innerHTML = d.history.map((h, i) => {
+                const opacity = i === 0 ? '' : i === 1 ? ' opacity-80' : ' opacity-60';
+                const innerOpacity = i === 0 ? '' : i === 1 ? ' opacity-60' : ' opacity-40';
+                const dateColor = i === 0 ? 'text-tech-teal' : 'text-slate-400';
+                const borderColor = i === 0 ? ' border-l-tech-teal' : '';
+                const trendIcon = h.backlogDirection === 'down' ? 'trending-down' : 'trending-up';
+                const trendColor = h.backlogDirection === 'down' ? 'text-emerald-600' : 'text-rose-600';
+                const labelSuffix = h.label ? ' (' + h.label + ')' : '';
+                return `
+                <div class="history-card p-6 bg-slate-50/50 rounded-r-lg border-y border-r border-slate-200 shadow-sm${opacity}${borderColor}">
+                    <div class="flex justify-between items-center mb-4${i > 0 ? ' text-slate-400' : ''}">
+                        <p class="text-[10px] font-black ${dateColor} uppercase tracking-widest">${h.date}${labelSuffix}</p>
+                        <span class="text-[10px] font-black ${i === 0 ? trendColor : ''} flex items-center gap-1"><i data-lucide="${trendIcon}" class="w-3 h-3"></i> ${h.backlogChange} Backlog</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2${innerOpacity}">
+                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Shipped</p><p class="text-xs font-bold text-slate-800">${h.shipped}</p></div>
+                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">MTD OTD</p><p class="text-xs font-bold text-slate-800">${h.mtdOTD}</p></div>
+                        <div><p class="text-[8px] font-black text-slate-400 uppercase tracking-tighter">Health</p><p class="text-xs font-bold text-slate-800">${h.health}</p></div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // ── Footer ──
+            document.getElementById('footer-info').innerHTML = 'Denver Site-01 Executive Dashboard &bull; Centennial, CO 80112<br>' + d.meta.footerDate + ' Sync (Ref: ' + d.meta.reportRef + ')';
+            document.getElementById('footer-stock').innerHTML = d.meta.stockPrice + ' <i data-lucide="arrow-up-right" class="text-emerald-500 w-5 h-5"></i>';
+
+            // Re-init icons after dynamic render
+            lucide.createIcons();
+            updateProgressBar();
+        }
+
+        function getStatusColors(status) {
+            const s = status.toLowerCase();
+            if (['on track', 'optimal'].includes(s)) return { bg: 'bg-emerald-500/20', text: 'text-emerald-400', border: 'border border-emerald-500/30' };
+            if (['underperform', 'at risk', 'critical'].includes(s)) return { bg: 'bg-rose-500/20', text: 'text-rose-400', border: 'border border-rose-500/30' };
+            return { bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border border-amber-500/30' };
+        }
+
+        // ── Countdown ──
         const targetDate = new Date("March 31, 2026 23:59:59").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
@@ -471,22 +454,19 @@
                 document.getElementById("cd-mins").innerHTML = "0";
                 return;
             }
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("cd-days").innerHTML = days;
-            document.getElementById("cd-hours").innerHTML = hours;
-            document.getElementById("cd-mins").innerHTML = minutes;
+            document.getElementById("cd-days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("cd-hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("cd-mins").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         }
         setInterval(updateCountdown, 60000);
         updateCountdown();
 
+        // ── Task Interactivity ──
         function updateProgressBar() {
             const actions = document.querySelectorAll('#action-list > div');
             const total = actions.length;
             const completed = document.querySelectorAll('.checkbox-active').length;
-            const progress = total === 0 ? 0 : (completed / total) * 100;
-            document.getElementById('overall-progress-bar').style.width = progress + '%';
+            document.getElementById('overall-progress-bar').style.width = (total === 0 ? 0 : (completed / total) * 100) + '%';
         }
         function toggleTask(element) {
             const checkbox = element.querySelector('.checkbox-element');
@@ -500,15 +480,13 @@
                 badge.innerText = 'Completed';
                 badge.className = 'status-badge status-pill-completed px-2 py-0.5 rounded-full text-[8px] font-black uppercase';
             } else {
-                const dateText = element.querySelector('span[class*="text-rose-600"]') ? 'OVERDUE' : 'Pending';
-                badge.innerText = dateText;
-                badge.className = dateText === 'OVERDUE' ? 'status-badge status-pill-late px-2 py-0.5 rounded-full text-[8px] font-black uppercase' : 'status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase';
+                badge.innerText = 'Pending';
+                badge.className = 'status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase';
             }
             updateProgressBar();
         }
         function resetTasks() {
-            const actions = document.querySelectorAll('#action-list > div');
-            actions.forEach(element => {
+            document.querySelectorAll('#action-list > div').forEach(element => {
                 const checkbox = element.querySelector('.checkbox-element');
                 const icon = checkbox.querySelector('i');
                 const text = element.querySelector('.task-text');
@@ -516,13 +494,15 @@
                 checkbox.classList.remove('checkbox-active');
                 icon.classList.add('hidden');
                 text.classList.remove('task-checked');
-                const dateText = element.querySelector('span[class*="text-rose-600"]') ? 'OVERDUE' : 'Pending';
-                badge.innerText = dateText;
-                badge.className = dateText === 'OVERDUE' ? 'status-badge status-pill-late px-2 py-0.5 rounded-full text-[8px] font-black uppercase' : 'status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase';
+                badge.innerText = 'Pending';
+                badge.className = 'status-badge status-pill-pending px-2 py-0.5 rounded-full text-[8px] font-black uppercase';
             });
             updateProgressBar();
         }
-        updateProgressBar();
+
+        // ── Init ──
+        lucide.createIcons();
+        loadDashboardData();
     </script>
 </body>
 </html>

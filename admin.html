@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denver Ops Dashboard | Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-tech-navy { background-color: #002B54; }
+        .bg-tech-blue { background-color: #004990; }
+        .bg-tech-teal { background-color: #00A3AD; }
+        .text-tech-teal { color: #00A3AD; }
+        .text-tech-blue { color: #004990; }
+
+        .drop-zone { border: 2px dashed rgba(0, 163, 173, 0.4); transition: all 0.3s ease; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #00A3AD; background-color: rgba(0, 163, 173, 0.05); }
+        .drop-zone.has-file { border-color: #00A3AD; border-style: solid; background-color: rgba(0, 163, 173, 0.05); }
+
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 163, 173, 0.4); } 50% { box-shadow: 0 0 20px 5px rgba(0, 163, 173, 0.2); } }
+        .processing { animation: pulse-glow 2s ease-in-out infinite; }
+
+        .step-active { color: #00A3AD; font-weight: 700; }
+        .step-done { color: #059669; }
+        .step-pending { color: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+    <!-- AUTH GATE -->
+    <div id="auth-gate" class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-10 shadow-xl border border-slate-200 max-w-md w-full">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="text-2xl font-black tracking-tighter text-tech-blue uppercase italic">bio-techne</span>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <span class="text-xs font-bold text-tech-teal uppercase tracking-widest">Admin</span>
+            </div>
+            <h2 class="text-xl font-bold text-slate-900 mb-2">Dashboard Admin Access</h2>
+            <p class="text-sm text-slate-500 mb-6">Enter the admin password to upload and process reports.</p>
+            <div class="space-y-4">
+                <input id="auth-password" type="password" placeholder="Admin password" class="w-full px-4 py-3 border border-slate-200 rounded text-sm focus:outline-none focus:border-[#00A3AD] focus:ring-1 focus:ring-[#00A3AD]" onkeydown="if(event.key==='Enter')authenticate()">
+                <button onclick="authenticate()" class="w-full bg-tech-navy text-white py-3 rounded text-sm font-bold uppercase tracking-widest hover:bg-[#003d6b] transition-colors">
+                    Access Admin Panel
+                </button>
+                <p id="auth-error" class="text-rose-600 text-xs font-bold hidden">Invalid password. Please try again.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL (hidden until auth) -->
+    <div id="admin-panel" class="hidden">
+        <!-- Header -->
+        <div class="bg-tech-navy text-white py-6 px-6 md:px-12">
+            <div class="max-w-4xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <span class="text-xl font-black tracking-tighter uppercase italic">bio-techne</span>
+                    <div class="h-5 w-px bg-white/20"></div>
+                    <span class="text-[10px] font-bold text-tech-teal uppercase tracking-widest">Report Upload Admin</span>
+                </div>
+                <a href="index.html" class="text-xs font-bold text-tech-teal uppercase tracking-widest hover:text-white transition-colors flex items-center gap-2">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i> View Dashboard
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 md:px-12 py-12 space-y-8">
+            <!-- Upload Section -->
+            <div class="bg-white p-8 border border-slate-200 shadow-xl">
+                <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                    <i data-lucide="upload-cloud" class="text-tech-teal w-6 h-6"></i>
+                    Upload Daily Report
+                </h2>
+                <p class="text-sm text-slate-500 mb-6">Upload Nicole's daily operations report (PDF or DOCX). AI will extract KPIs, action items, and narrative updates.</p>
+
+                <div id="drop-zone" class="drop-zone rounded-lg p-12 text-center cursor-pointer" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                    <input id="file-input" type="file" accept=".pdf,.docx,.doc" class="hidden" onchange="handleFileSelect(event)">
+                    <div id="drop-zone-content">
+                        <i data-lucide="file-up" class="w-12 h-12 text-slate-300 mx-auto mb-4"></i>
+                        <p class="text-sm font-bold text-slate-600 mb-1">Drop report here or click to browse</p>
+                        <p class="text-xs text-slate-400">Accepts PDF, DOCX, DOC files</p>
+                    </div>
+                    <div id="file-selected" class="hidden">
+                        <i data-lucide="file-check" class="w-12 h-12 text-tech-teal mx-auto mb-4"></i>
+                        <p id="file-name" class="text-sm font-bold text-slate-800 mb-1"></p>
+                        <p id="file-size" class="text-xs text-slate-400"></p>
+                        <button onclick="event.stopPropagation(); clearFile()" class="mt-3 text-xs text-rose-500 font-bold hover:text-rose-700">Remove file</button>
+                    </div>
+                </div>
+
+                <button id="process-btn" onclick="processReport()" disabled class="mt-6 w-full bg-tech-teal text-white py-4 rounded text-sm font-black uppercase tracking-widest hover:bg-[#008a93] transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-3">
+                    <i data-lucide="brain" class="w-5 h-5"></i>
+                    Process Report with AI
+                </button>
+            </div>
+
+            <!-- Processing Status -->
+            <div id="status-section" class="bg-white p-8 border border-slate-200 shadow-xl hidden">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i data-lucide="loader" class="w-5 h-5 text-tech-teal"></i>
+                    Processing Pipeline
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4" id="step-upload">
+                        <div class="w-8 h-8 rounded-full border-2 border-slate-200 flex items-center justify-center step-icon">
+                            <i data-lucide="upload" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold step-label">Uploading report</p>
+                            <p class="text-xs text-slate-400">Sending file to processing server</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4" id="step-extract">
+                        <div class="w-8 h-8 rounded-full border-2 border-slate-200 flex items-center justify-center step-icon">
+                            <i data-lucide="file-search" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold step-label">Extracting text</p>
+                            <p class="text-xs text-slate-400">Reading document contents</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4" id="step-ai">
+                        <div class="w-8 h-8 rounded-full border-2 border-slate-200 flex items-center justify-center step-icon">
+                            <i data-lucide="brain" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold step-label">AI analyzing report</p>
+                            <p class="text-xs text-slate-400">Extracting KPIs, action items, and narrative</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4" id="step-commit">
+                        <div class="w-8 h-8 rounded-full border-2 border-slate-200 flex items-center justify-center step-icon">
+                            <i data-lucide="git-commit-horizontal" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold step-label">Updating dashboard</p>
+                            <p class="text-xs text-slate-400">Committing data and triggering deploy</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4" id="step-deploy">
+                        <div class="w-8 h-8 rounded-full border-2 border-slate-200 flex items-center justify-center step-icon">
+                            <i data-lucide="rocket" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold step-label">Live on Netlify</p>
+                            <p class="text-xs text-slate-400">Dashboard updated and available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Preview -->
+            <div id="results-section" class="bg-white p-8 border border-slate-200 shadow-xl hidden">
+                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                    Extraction Results
+                </h3>
+                <div id="results-content" class="space-y-6">
+                    <!-- Populated after processing -->
+                </div>
+                <div class="mt-8 flex gap-4">
+                    <a href="index.html" class="flex-1 bg-tech-navy text-white py-3 rounded text-sm font-bold uppercase tracking-widest text-center hover:bg-[#003d6b] transition-colors">
+                        View Updated Dashboard
+                    </a>
+                    <button onclick="resetAdmin()" class="flex-1 border-2 border-slate-200 text-slate-600 py-3 rounded text-sm font-bold uppercase tracking-widest hover:border-tech-teal hover:text-tech-teal transition-colors">
+                        Process Another Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error Display -->
+            <div id="error-section" class="bg-rose-50 border border-rose-200 p-8 rounded hidden">
+                <h3 class="text-lg font-bold text-rose-800 mb-2 flex items-center gap-2">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                    Processing Error
+                </h3>
+                <p id="error-message" class="text-sm text-rose-700"></p>
+                <button onclick="resetAdmin()" class="mt-4 text-sm font-bold text-rose-600 underline hover:text-rose-800">Try again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+
+        // ── Authentication ──
+        async function authenticate() {
+            const password = document.getElementById('auth-password').value;
+            try {
+                const resp = await fetch('/.netlify/functions/process-report', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'auth', password })
+                });
+                if (resp.ok) {
+                    sessionStorage.setItem('admin_token', password);
+                    document.getElementById('auth-gate').classList.add('hidden');
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                    lucide.createIcons();
+                } else {
+                    document.getElementById('auth-error').classList.remove('hidden');
+                }
+            } catch (e) {
+                // For local dev, bypass auth
+                sessionStorage.setItem('admin_token', password);
+                document.getElementById('auth-gate').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                lucide.createIcons();
+            }
+        }
+
+        // ── File Handling ──
+        function handleDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('dragover'); }
+        function handleDragLeave(e) { e.currentTarget.classList.remove('dragover'); }
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) setFile(file);
+        }
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) setFile(file);
+        }
+        function setFile(file) {
+            const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword'];
+            if (!validTypes.includes(file.type) && !file.name.match(/\.(pdf|docx|doc)$/i)) {
+                alert('Please upload a PDF or DOCX file.');
+                return;
+            }
+            selectedFile = file;
+            document.getElementById('drop-zone').classList.add('has-file');
+            document.getElementById('drop-zone-content').classList.add('hidden');
+            document.getElementById('file-selected').classList.remove('hidden');
+            document.getElementById('file-name').textContent = file.name;
+            document.getElementById('file-size').textContent = (file.size / 1024).toFixed(1) + ' KB';
+            document.getElementById('process-btn').disabled = false;
+        }
+        function clearFile() {
+            selectedFile = null;
+            document.getElementById('file-input').value = '';
+            document.getElementById('drop-zone').classList.remove('has-file');
+            document.getElementById('drop-zone-content').classList.remove('hidden');
+            document.getElementById('file-selected').classList.add('hidden');
+            document.getElementById('process-btn').disabled = true;
+        }
+
+        // ── Processing ──
+        function setStepStatus(stepId, status) {
+            const el = document.getElementById(stepId);
+            const icon = el.querySelector('.step-icon');
+            const label = el.querySelector('.step-label');
+            icon.className = 'w-8 h-8 rounded-full border-2 flex items-center justify-center step-icon';
+            if (status === 'active') {
+                icon.classList.add('border-[#00A3AD]', 'text-[#00A3AD]', 'processing');
+                label.className = 'text-sm font-bold step-label step-active';
+            } else if (status === 'done') {
+                icon.classList.add('border-emerald-500', 'text-emerald-500', 'bg-emerald-50');
+                label.className = 'text-sm font-bold step-label step-done';
+            } else {
+                icon.classList.add('border-slate-200', 'text-slate-300');
+                label.className = 'text-sm font-bold step-label step-pending';
+            }
+        }
+
+        async function processReport() {
+            if (!selectedFile) return;
+
+            document.getElementById('status-section').classList.remove('hidden');
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('error-section').classList.add('hidden');
+            document.getElementById('process-btn').disabled = true;
+
+            const steps = ['step-upload', 'step-extract', 'step-ai', 'step-commit', 'step-deploy'];
+            steps.forEach(s => setStepStatus(s, 'pending'));
+
+            try {
+                // Step 1: Upload
+                setStepStatus('step-upload', 'active');
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                formData.append('password', sessionStorage.getItem('admin_token'));
+
+                const resp = await fetch('/.netlify/functions/process-report', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                setStepStatus('step-upload', 'done');
+
+                if (!resp.ok) {
+                    const err = await resp.json();
+                    throw new Error(err.error || 'Processing failed');
+                }
+
+                // The function handles steps 2-4 server-side; we simulate the UI progression
+                setStepStatus('step-extract', 'done');
+                setStepStatus('step-ai', 'done');
+                setStepStatus('step-commit', 'done');
+                setStepStatus('step-deploy', 'done');
+
+                const result = await resp.json();
+                showResults(result);
+
+            } catch (err) {
+                document.getElementById('error-section').classList.remove('hidden');
+                document.getElementById('error-message').textContent = err.message;
+                document.getElementById('process-btn').disabled = false;
+            }
+        }
+
+        function showResults(result) {
+            document.getElementById('results-section').classList.remove('hidden');
+            const data = result.data;
+            document.getElementById('results-content').innerHTML = `
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Shipped</p>
+                        <p class="text-lg font-bold text-slate-900">${data.kpis.shippedYesterday.value}</p>
+                        <p class="text-[10px] font-bold text-tech-teal">${data.kpis.shippedYesterday.status}</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">MTD OTD</p>
+                        <p class="text-lg font-bold text-slate-900">${data.kpis.mtdOTD.value}</p>
+                        <p class="text-[10px] font-bold text-tech-teal">${data.kpis.mtdOTD.status}</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Backlog</p>
+                        <p class="text-lg font-bold text-slate-900">${data.kpis.currentBacklog.value}</p>
+                        <p class="text-[10px] font-bold text-tech-teal">${data.kpis.currentBacklog.status}</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                        <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Net Burn</p>
+                        <p class="text-lg font-bold text-slate-900">${data.kpis.netDailyBurn.value}</p>
+                        <p class="text-[10px] font-bold text-tech-teal">${data.kpis.netDailyBurn.status}</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Nicole's Narrative</p>
+                    <p class="text-sm text-slate-700 italic">"${data.narrative.quote}"</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded border border-slate-100">
+                    <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Action Items (${data.actionItems.length})</p>
+                    <ul class="space-y-1">
+                        ${data.actionItems.map(a => `<li class="text-xs text-slate-600"><span class="font-bold">${a.owner}:</span> ${a.task}</li>`).join('')}
+                    </ul>
+                </div>
+                <p class="text-xs text-emerald-600 font-bold flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4"></i>
+                    Dashboard data committed to GitHub. Netlify will redeploy automatically (~30 seconds).
+                </p>
+            `;
+            lucide.createIcons();
+        }
+
+        function resetAdmin() {
+            clearFile();
+            document.getElementById('status-section').classList.add('hidden');
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('error-section').classList.add('hidden');
+        }
+
+        // ── Init ──
+        lucide.createIcons();
+
+        // Auto-login if session exists
+        if (sessionStorage.getItem('admin_token')) {
+            document.getElementById('auth-gate').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+            setTimeout(() => lucide.createIcons(), 100);
+        }
+    </script>
+</body>
+</html>
