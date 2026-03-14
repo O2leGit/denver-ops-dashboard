@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "denver-dashboard",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3848", "."],
+      "port": 3848,
+      "cwd": "C:\\Users\\Chris\\Documents\\denver-ops-dashboard"
+    }
+  ]
+}
