@@ -48,6 +48,21 @@
         .history-card:hover { border-left-color: #00A3AD; background-color: #F8FAFC; }
 
         .carryover-tag { background-color: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
+
+        /* Admin Panel */
+        .drop-zone { border: 2px dashed rgba(0, 163, 173, 0.4); transition: all 0.3s ease; }
+        .drop-zone:hover, .drop-zone.dragover { border-color: #00A3AD; background-color: rgba(0, 163, 173, 0.05); }
+        .drop-zone.has-file { border-color: #00A3AD; border-style: solid; background-color: rgba(0, 163, 173, 0.05); }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 163, 173, 0.4); } 50% { box-shadow: 0 0 20px 5px rgba(0, 163, 173, 0.2); } }
+        .processing { animation: pulse-glow 2s ease-in-out infinite; }
+        .step-active { color: #00A3AD; font-weight: 700; }
+        .step-done { color: #059669; }
+        .step-pending { color: #94a3b8; }
+        .admin-panel-slide { transition: max-height 0.4s ease, opacity 0.3s ease; overflow: hidden; }
+        .admin-panel-slide.collapsed { max-height: 0; opacity: 0; }
+        .admin-panel-slide.expanded { max-height: 2000px; opacity: 1; }
+        /* Login modal */
+        .login-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 selection:bg-teal-100">
@@ -78,6 +93,10 @@
                 </div>
 
                 <div class="flex flex-col items-end gap-3">
+                    <button id="admin-toggle-btn" onclick="toggleAdminAccess()" class="px-4 py-2 rounded text-[10px] font-black uppercase tracking-widest border border-white/20 bg-white/5 text-blue-100 hover:bg-tech-teal hover:text-white hover:border-tech-teal transition-all flex items-center gap-2 mb-2">
+                        <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                        <span id="admin-btn-text">Admin Login</span>
+                    </button>
                     <div class="countdown-container p-5 flex gap-6">
                         <div class="text-center">
                             <p id="cd-days" class="text-3xl font-black text-tech-teal leading-none countdown-value">--</p>
@@ -105,6 +124,92 @@
             </div>
         </div>
     </section>
+
+    <!-- LOGIN MODAL (hidden) -->
+    <div id="login-modal" class="login-overlay hidden" onclick="if(event.target===this)closeLoginModal()">
+        <div class="bg-white p-8 shadow-xl border border-slate-200 max-w-sm w-full mx-4 rounded">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="shield" class="w-6 h-6 text-[#00A3AD]"></i>
+                <h2 class="text-lg font-bold text-slate-900">Admin Access</h2>
+            </div>
+            <input id="admin-password" type="password" placeholder="Enter admin password" class="w-full px-4 py-3 border border-slate-200 rounded text-sm focus:outline-none focus:border-[#00A3AD] focus:ring-1 focus:ring-[#00A3AD] mb-4" onkeydown="if(event.key==='Enter')doAdminLogin()">
+            <p id="login-error" class="text-rose-600 text-xs font-bold mb-3 hidden">Invalid password.</p>
+            <button onclick="doAdminLogin()" class="w-full bg-[#002B54] text-white py-3 rounded text-sm font-bold uppercase tracking-widest hover:bg-[#003d6b] transition-colors">Login</button>
+        </div>
+    </div>
+
+    <!-- ADMIN UPLOAD PANEL (hidden until logged in) -->
+    <div id="admin-panel" class="admin-panel-slide collapsed">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-6">
+            <div class="bg-white p-6 border border-slate-200 shadow-xl rounded-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="upload-cloud" class="text-[#00A3AD] w-5 h-5"></i>
+                        Upload Daily Report
+                    </h2>
+                    <span class="text-[9px] font-black text-[#00A3AD] uppercase tracking-widest">Admin Mode</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-4">Upload Nicole's daily operations report (PDF or DOCX). AI will extract and update the dashboard automatically.</p>
+
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div id="drop-zone" class="drop-zone rounded-lg p-8 text-center cursor-pointer flex-1" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('dragover')" ondragleave="this.classList.remove('dragover')" ondrop="event.preventDefault();this.classList.remove('dragover');if(event.dataTransfer.files[0])setFile(event.dataTransfer.files[0])">
+                        <input id="file-input" type="file" accept=".pdf,.docx,.doc" class="hidden" onchange="if(this.files[0])setFile(this.files[0])">
+                        <div id="drop-zone-content">
+                            <i data-lucide="file-up" class="w-8 h-8 text-slate-300 mx-auto mb-2"></i>
+                            <p class="text-xs font-bold text-slate-600">Drop report here or click to browse</p>
+                            <p class="text-[10px] text-slate-400">PDF, DOCX, DOC</p>
+                        </div>
+                        <div id="file-selected" class="hidden">
+                            <i data-lucide="file-check" class="w-8 h-8 text-[#00A3AD] mx-auto mb-2"></i>
+                            <p id="file-name" class="text-xs font-bold text-slate-800"></p>
+                            <p id="file-size" class="text-[10px] text-slate-400"></p>
+                            <button onclick="event.stopPropagation();clearFile()" class="mt-2 text-[10px] text-rose-500 font-bold hover:text-rose-700">Remove</button>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center gap-3 min-w-[200px]">
+                        <button id="process-btn" onclick="processReport()" disabled class="bg-[#00A3AD] text-white py-3 px-6 rounded text-xs font-black uppercase tracking-widest hover:bg-[#008a93] transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                            <i data-lucide="brain" class="w-4 h-4"></i> Process Report
+                        </button>
+                        <div id="process-status" class="text-[10px] font-bold text-slate-400 text-center hidden">
+                            <span id="process-status-text">Processing...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Steps (inline) -->
+                <div id="process-steps" class="mt-4 hidden">
+                    <div class="flex items-center gap-6 py-3 border-t border-slate-100">
+                        <div class="flex items-center gap-2" id="step-upload"><div class="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center step-icon"><i data-lucide="upload" class="w-3 h-3"></i></div><span class="text-[10px] font-bold step-label step-pending">Upload</span></div>
+                        <div class="flex items-center gap-2" id="step-extract"><div class="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center step-icon"><i data-lucide="file-search" class="w-3 h-3"></i></div><span class="text-[10px] font-bold step-label step-pending">Extract</span></div>
+                        <div class="flex items-center gap-2" id="step-ai"><div class="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center step-icon"><i data-lucide="brain" class="w-3 h-3"></i></div><span class="text-[10px] font-bold step-label step-pending">AI Parse</span></div>
+                        <div class="flex items-center gap-2" id="step-commit"><div class="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center step-icon"><i data-lucide="git-commit-horizontal" class="w-3 h-3"></i></div><span class="text-[10px] font-bold step-label step-pending">Commit</span></div>
+                        <div class="flex items-center gap-2" id="step-deploy"><div class="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center step-icon"><i data-lucide="rocket" class="w-3 h-3"></i></div><span class="text-[10px] font-bold step-label step-pending">Live</span></div>
+                    </div>
+                </div>
+
+                <!-- Result / Error -->
+                <div id="process-result" class="mt-4 hidden">
+                    <div class="bg-emerald-50 border border-emerald-200 rounded p-4 flex items-center gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+                        <div>
+                            <p class="text-sm font-bold text-emerald-800">Dashboard updated successfully</p>
+                            <p class="text-[10px] text-emerald-600">Data committed to GitHub. Netlify will redeploy in ~30 seconds. <a href="javascript:location.reload()" class="underline font-bold">Reload page</a> to see changes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="process-error" class="mt-4 hidden">
+                    <div class="bg-rose-50 border border-rose-200 rounded p-4 flex items-center gap-3">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-600"></i>
+                        <div>
+                            <p class="text-sm font-bold text-rose-800">Processing failed</p>
+                            <p id="error-message" class="text-[10px] text-rose-600"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ANALYTICS SECTION -->
     <main class="max-w-7xl mx-auto px-6 md:px-12 -mt-10 pb-20 space-y-10">
@@ -499,6 +604,164 @@
             });
             updateProgressBar();
         }
+
+        // ── Admin Panel ──
+        let selectedFile = null;
+        let isAdminLoggedIn = !!sessionStorage.getItem('admin_token');
+
+        function updateAdminButton() {
+            const btn = document.getElementById('admin-toggle-btn');
+            const text = document.getElementById('admin-btn-text');
+            const icon = btn.querySelector('i');
+            if (isAdminLoggedIn) {
+                text.textContent = 'Logout';
+                btn.classList.add('bg-tech-teal', 'border-tech-teal', 'text-white');
+                btn.classList.remove('bg-white/5', 'border-white/20', 'text-blue-100');
+            } else {
+                text.textContent = 'Admin Login';
+                btn.classList.remove('bg-tech-teal', 'border-tech-teal', 'text-white');
+                btn.classList.add('bg-white/5', 'border-white/20', 'text-blue-100');
+            }
+        }
+
+        function toggleAdminAccess() {
+            if (isAdminLoggedIn) {
+                // Logout
+                sessionStorage.removeItem('admin_token');
+                isAdminLoggedIn = false;
+                document.getElementById('admin-panel').classList.remove('expanded');
+                document.getElementById('admin-panel').classList.add('collapsed');
+                updateAdminButton();
+                clearFile();
+                lucide.createIcons();
+            } else {
+                // Show login modal
+                document.getElementById('login-modal').classList.remove('hidden');
+                document.getElementById('admin-password').value = '';
+                document.getElementById('login-error').classList.add('hidden');
+                setTimeout(() => document.getElementById('admin-password').focus(), 100);
+            }
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        async function doAdminLogin() {
+            const password = document.getElementById('admin-password').value;
+            try {
+                const resp = await fetch('/.netlify/functions/process-report', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'auth', password })
+                });
+                if (resp.ok) {
+                    sessionStorage.setItem('admin_token', password);
+                    isAdminLoggedIn = true;
+                    closeLoginModal();
+                    document.getElementById('admin-panel').classList.remove('collapsed');
+                    document.getElementById('admin-panel').classList.add('expanded');
+                    updateAdminButton();
+                    lucide.createIcons();
+                } else {
+                    document.getElementById('login-error').classList.remove('hidden');
+                }
+            } catch (e) {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        function setFile(file) {
+            if (!file.name.match(/\.(pdf|docx|doc)$/i)) { alert('Please upload a PDF or DOCX file.'); return; }
+            selectedFile = file;
+            document.getElementById('drop-zone').classList.add('has-file');
+            document.getElementById('drop-zone-content').classList.add('hidden');
+            document.getElementById('file-selected').classList.remove('hidden');
+            document.getElementById('file-name').textContent = file.name;
+            document.getElementById('file-size').textContent = (file.size / 1024).toFixed(1) + ' KB';
+            document.getElementById('process-btn').disabled = false;
+        }
+
+        function clearFile() {
+            selectedFile = null;
+            const fi = document.getElementById('file-input');
+            if (fi) fi.value = '';
+            const dz = document.getElementById('drop-zone');
+            if (dz) dz.classList.remove('has-file');
+            const dzc = document.getElementById('drop-zone-content');
+            if (dzc) dzc.classList.remove('hidden');
+            const fs = document.getElementById('file-selected');
+            if (fs) fs.classList.add('hidden');
+            const pb = document.getElementById('process-btn');
+            if (pb) pb.disabled = true;
+            const pr = document.getElementById('process-result');
+            if (pr) pr.classList.add('hidden');
+            const pe = document.getElementById('process-error');
+            if (pe) pe.classList.add('hidden');
+            const ps = document.getElementById('process-steps');
+            if (ps) ps.classList.add('hidden');
+        }
+
+        function setStepStatus(stepId, status) {
+            const el = document.getElementById(stepId);
+            if (!el) return;
+            const icon = el.querySelector('.step-icon');
+            const label = el.querySelector('.step-label');
+            icon.className = 'w-5 h-5 rounded-full border flex items-center justify-center step-icon';
+            if (status === 'active') { icon.classList.add('border-[#00A3AD]', 'text-[#00A3AD]', 'processing'); label.className = 'text-[10px] font-bold step-label step-active'; }
+            else if (status === 'done') { icon.classList.add('border-emerald-500', 'text-emerald-500', 'bg-emerald-50'); label.className = 'text-[10px] font-bold step-label step-done'; }
+            else { icon.classList.add('border-slate-200', 'text-slate-300'); label.className = 'text-[10px] font-bold step-label step-pending'; }
+        }
+
+        async function processReport() {
+            if (!selectedFile) return;
+            document.getElementById('process-steps').classList.remove('hidden');
+            document.getElementById('process-result').classList.add('hidden');
+            document.getElementById('process-error').classList.add('hidden');
+            document.getElementById('process-btn').disabled = true;
+            document.getElementById('process-status').classList.remove('hidden');
+            document.getElementById('process-status-text').textContent = 'Processing report...';
+
+            const steps = ['step-upload', 'step-extract', 'step-ai', 'step-commit', 'step-deploy'];
+            steps.forEach(s => setStepStatus(s, 'pending'));
+            lucide.createIcons();
+
+            try {
+                setStepStatus('step-upload', 'active');
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                formData.append('password', sessionStorage.getItem('admin_token'));
+
+                const resp = await fetch('/.netlify/functions/process-report', { method: 'POST', body: formData });
+                setStepStatus('step-upload', 'done');
+
+                if (!resp.ok) {
+                    const err = await resp.json();
+                    throw new Error(err.error || 'Processing failed');
+                }
+
+                setStepStatus('step-extract', 'done');
+                setStepStatus('step-ai', 'done');
+                setStepStatus('step-commit', 'done');
+                setStepStatus('step-deploy', 'done');
+                document.getElementById('process-status-text').textContent = 'Complete!';
+                document.getElementById('process-result').classList.remove('hidden');
+                lucide.createIcons();
+            } catch (err) {
+                document.getElementById('process-error').classList.remove('hidden');
+                document.getElementById('error-message').textContent = err.message;
+                document.getElementById('process-btn').disabled = false;
+                document.getElementById('process-status').classList.add('hidden');
+                lucide.createIcons();
+            }
+        }
+
+        // Restore admin state on page load
+        if (isAdminLoggedIn) {
+            document.getElementById('admin-panel').classList.remove('collapsed');
+            document.getElementById('admin-panel').classList.add('expanded');
+        }
+        updateAdminButton();
 
         // ── Init ──
         lucide.createIcons();
