@@ -93,8 +93,8 @@
                 </div>
 
                 <div class="flex flex-col items-end gap-3">
-                    <button id="admin-toggle-btn" onclick="toggleAdminAccess()" class="px-4 py-2 rounded text-[10px] font-black uppercase tracking-widest border border-white/20 bg-white/5 text-blue-100 hover:bg-tech-teal hover:text-white hover:border-tech-teal transition-all flex items-center gap-2 mb-2">
-                        <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                    <button id="admin-toggle-btn" onclick="toggleAdminAccess()" style="background-color: rgba(0,163,173,0.25); border-color: #00A3AD;" class="px-5 py-2.5 rounded-md text-xs font-black uppercase tracking-widest border-2 text-white hover:bg-[#00A3AD] transition-all flex items-center gap-2 mb-2" title="Admin Login">
+                        <i data-lucide="lock" class="w-4 h-4"></i>
                         <span id="admin-btn-text">Admin Login</span>
                     </button>
                     <div class="countdown-container p-5 flex gap-6">
@@ -615,12 +615,12 @@
             const icon = btn.querySelector('i');
             if (isAdminLoggedIn) {
                 text.textContent = 'Logout';
-                btn.classList.add('bg-tech-teal', 'border-tech-teal', 'text-white');
-                btn.classList.remove('bg-white/5', 'border-white/20', 'text-blue-100');
+                btn.style.backgroundColor = 'rgba(220,38,38,0.7)';
+                btn.style.borderColor = '#ef4444';
             } else {
                 text.textContent = 'Admin Login';
-                btn.classList.remove('bg-tech-teal', 'border-tech-teal', 'text-white');
-                btn.classList.add('bg-white/5', 'border-white/20', 'text-blue-100');
+                btn.style.backgroundColor = 'rgba(0,163,173,0.25)';
+                btn.style.borderColor = '#00A3AD';
             }
         }
 
