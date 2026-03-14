@@ -110,7 +110,12 @@
                         <div class="w-px h-10 bg-white/10 self-center"></div>
                         <div class="text-center">
                             <p id="cd-mins" class="text-3xl font-black text-white leading-none">--</p>
-                            <p class="text-[9px] font-black uppercase text-blue-200 mt-2 tracking-tighter">Minutes</p>
+                            <p class="text-[9px] font-black uppercase text-blue-200 mt-2 tracking-tighter">Min</p>
+                        </div>
+                        <div class="w-px h-10 bg-white/10 self-center"></div>
+                        <div class="text-center">
+                            <p id="cd-secs" class="text-3xl font-black text-tech-teal leading-none countdown-value">--</p>
+                            <p class="text-[9px] font-black uppercase text-blue-200 mt-2 tracking-tighter">Sec</p>
                         </div>
                     </div>
                     <p class="text-[11px] font-black text-tech-teal uppercase tracking-widest italic flex items-center gap-2">
@@ -358,7 +363,10 @@
             // ── Header ──
             document.getElementById('header-stock').textContent = 'Nasdaq: TECH \u2022 ' + d.meta.stockPrice;
             document.getElementById('header-plan').textContent = 'INTERNAL DISTRIBUTION ONLY \u2022 ' + d.meta.planPhase;
-            document.getElementById('header-datapull').textContent = 'Data Pull: ' + d.meta.dataPull;
+            // Show report date + live "last updated" timestamp
+            const now = new Date();
+            const timeStr = now.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true, timeZoneName: 'short' });
+            document.getElementById('header-datapull').textContent = 'Report: ' + d.meta.dataPull + ' | Updated: ' + timeStr;
 
             // ── KPI Cards ──
             const kpiConfig = [
@@ -548,7 +556,7 @@
             return { bg: 'bg-amber-500/20', text: 'text-amber-400', border: 'border border-amber-500/30' };
         }
 
-        // ── Countdown ──
+        // ── Countdown (live, updates every second) ──
         const targetDate = new Date("March 31, 2026 23:59:59").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
@@ -557,13 +565,15 @@
                 document.getElementById("cd-days").innerHTML = "0";
                 document.getElementById("cd-hours").innerHTML = "0";
                 document.getElementById("cd-mins").innerHTML = "0";
+                document.getElementById("cd-secs").innerHTML = "0";
                 return;
             }
             document.getElementById("cd-days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
             document.getElementById("cd-hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("cd-mins").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("cd-secs").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
         }
-        setInterval(updateCountdown, 60000);
+        setInterval(updateCountdown, 1000);
         updateCountdown();
 
         // ── Task Interactivity ──
