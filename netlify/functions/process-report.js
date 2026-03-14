@@ -194,6 +194,24 @@ exports.handler = async (event) => {
       }
     }
 
+    // ── ARCHIVE: Save full snapshot of previous data before overwriting ──
+    if (currentJson.meta && currentJson.meta.reportDate) {
+      const archivePath = `data/archive/${currentJson.meta.reportDate}.json`;
+      const archiveContent = Buffer.from(JSON.stringify(currentJson, null, 2)).toString("base64");
+      // Check if archive already exists (avoid overwriting if same date re-uploaded)
+      const existingArchive = await getGitHubFile(GITHUB_TOKEN, GITHUB_REPO, archivePath);
+      if (!existingArchive) {
+        await updateGitHubFile(
+          GITHUB_TOKEN, GITHUB_REPO, archivePath, archiveContent,
+          `Archive snapshot for ${currentJson.meta.reportDate}`, null
+        );
+      }
+    }
+
+    // ── CHANGELOG: Generate and append change summary ──
+    const changeEntry = generateChangeEntry(currentJson, extractedData, fileName);
+    await appendChangelog(GITHUB_TOKEN, GITHUB_REPO, changeEntry);
+
     // Commit updated data to GitHub
     const newContent = Buffer.from(JSON.stringify(extractedData, null, 2)).toString("base64");
     await updateGitHubFile(
@@ -319,5 +337,87 @@ function calculateBacklogChange(oldData, newData) {
     return sign + "$" + (Math.abs(diff) / 1000).toFixed(1) + "K";
   } catch {
     return "$0K";
+  }
+}
+
+// ── Change Tracking ──
+function generateChangeEntry(oldData, newData, fileName) {
+  const now = new Date().toISOString();
+  const changes = [];
+
+  // Compare KPIs
+  if (oldData.kpis && newData.kpis) {
+    for (const [key, oldKpi] of Object.entries(oldData.kpis)) {
+      const newKpi = newData.kpis[key];
+      if (newKpi && oldKpi.value !== newKpi.value) {
+        changes.push({ field: `kpis.${key}`, from: oldKpi.value, to: newKpi.value });
+      }
+      if (newKpi && oldKpi.status !== newKpi.status) {
+        changes.push({ field: `kpis.${key}.status`, from: oldKpi.status, to: newKpi.status });
+      }
+    }
+  }
+
+  // Compare Recovery Bridge
+  if (oldData.recoveryBridge && newData.recoveryBridge) {
+    const rb = oldData.recoveryBridge;
+    const nrb = newData.recoveryBridge;
+    if (rb.siteBacklog !== nrb.siteBacklog) changes.push({ field: "recoveryBridge.siteBacklog", from: rb.siteBacklog, to: nrb.siteBacklog });
+    if (rb.projectedClosing !== nrb.projectedClosing) changes.push({ field: "recoveryBridge.projectedClosing", from: rb.projectedClosing, to: nrb.projectedClosing });
+    if (rb.forecastStatus !== nrb.forecastStatus) changes.push({ field: "recoveryBridge.forecastStatus", from: rb.forecastStatus, to: nrb.forecastStatus });
+  }
+
+  // Compare Operational Health
+  if (oldData.operationalHealth && newData.operationalHealth) {
+    for (const [key, oldH] of Object.entries(oldData.operationalHealth)) {
+      const newH = newData.operationalHealth[key];
+      if (newH && oldH.pct !== newH.pct) {
+        changes.push({ field: `operationalHealth.${key}`, from: `${oldH.pct}%`, to: `${newH.pct}%` });
+      }
+    }
+  }
+
+  // Count action item changes
+  const oldActions = (oldData.actionItems || []).length;
+  const newActions = (newData.actionItems || []).length;
+  const newItems = (newData.actionItems || []).filter(a => a.tag && a.tag.toLowerCase().includes("new")).length;
+  if (oldActions !== newActions || newItems > 0) {
+    changes.push({ field: "actionItems", from: `${oldActions} items`, to: `${newActions} items (${newItems} new)` });
+  }
+
+  // Supplier changes
+  const oldSuppliers = (oldData.supplierCriticalPath || []).map(s => `${s.name}:${s.status}`).join(",");
+  const newSuppliers = (newData.supplierCriticalPath || []).map(s => `${s.name}:${s.status}`).join(",");
+  if (oldSuppliers !== newSuppliers) {
+    changes.push({ field: "supplierCriticalPath", from: oldSuppliers, to: newSuppliers });
+  }
+
+  return {
+    timestamp: now,
+    fromDate: oldData.meta ? oldData.meta.reportDate : "unknown",
+    toDate: newData.meta ? newData.meta.reportDate : "unknown",
+    fileName,
+    changeCount: changes.length,
+    changes,
+  };
+}
+
+async function appendChangelog(token, repo, entry) {
+  try {
+    const existing = await getGitHubFile(token, repo, "data/changelog.json");
+    let log = [];
+    if (existing) {
+      log = JSON.parse(Buffer.from(existing.content, "base64").toString("utf-8"));
+    }
+    log.unshift(entry); // newest first
+    if (log.length > 90) log = log.slice(0, 90); // keep ~3 months
+
+    const content = Buffer.from(JSON.stringify(log, null, 2)).toString("base64");
+    await updateGitHubFile(token, repo, "data/changelog.json", content,
+      `Changelog: ${entry.fromDate} → ${entry.toDate}`,
+      existing ? existing.sha : null
+    );
+  } catch (err) {
+    console.error("Changelog update failed (non-fatal):", err.message);
   }
 }
