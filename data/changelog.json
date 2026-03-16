@@ -1,5 +1,69 @@
 [
   {
+    "timestamp": "2026-03-16T20:52:33.532Z",
+    "fromDate": "2026-03-13",
+    "toDate": "2026-03-16",
+    "fileName": "3-16 Denver Daily Executive Update-Test.docx",
+    "changeCount": 11,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$142,898",
+        "to": "$103,752"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "85.0%",
+        "to": "82.0%"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,122,422",
+        "to": "$1,287,466"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$212.2K",
+        "to": "-$148.7K"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,122,422",
+        "to": "$1,287,466"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$940,000",
+        "to": "$1,182,466"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "90%",
+        "to": "70%"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "85%",
+        "to": "75%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "80%",
+        "to": "65%"
+      },
+      {
+        "field": "actionItems",
+        "from": "6 items",
+        "to": "5 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Bethyl (Item 7487):Critical,BT China:Delayed,FedEx Clearance:At Risk",
+        "to": "SuperBioChips:Critical,Bio-Rad UK:Delayed,Vector Labs:At Risk,GeneTex:On Track"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-16T15:34:12.047Z",
     "fromDate": "2026-03-16",
     "toDate": "2026-03-13",
