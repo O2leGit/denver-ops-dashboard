@@ -1,176 +1,195 @@
 {
   "meta": {
-    "reportDate": "2026-03-16",
-    "dataPull": "Mon 16, 8:00 AM CT",
-    "week": "Week 11",
-    "planPhase": "WEEK 11 TRIAGE PLAN",
-    "reportRef": "3/16/26 Reporting",
-    "footerDate": "March 16, 2026",
+    "reportDate": "2026-03-13",
+    "dataPull": "Mar 13, 3:52 PM CT",
+    "week": "Week 3",
+    "planPhase": "WEEK 3 TRIAGE PLAN",
+    "reportRef": "3/13/26 Reporting",
+    "footerDate": "March 13, 2026",
     "stockPrice": "$53.89"
   },
   "kpis": {
     "shippedYesterday": {
-      "value": "$103,752",
-      "date": "3/15",
-      "target": "$200,000",
+      "value": "$142,898",
+      "date": "3/12",
+      "target": "$212,163",
       "status": "Underperform"
     },
     "mtdOTD": {
-      "value": "82.0%",
+      "value": "85.0%",
       "target": "95.0%",
       "status": "At Risk"
     },
     "currentBacklog": {
-      "value": "$1,287,466",
+      "value": "$1,122,422",
       "target": "$900,000",
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "-$148.7K",
-      "consecutiveDays": 2,
+      "value": "$212.2K",
+      "consecutiveDays": 3,
       "status": "At Risk"
     }
   },
   "recoveryBridge": {
-    "siteBacklog": "$1,287,466",
+    "siteBacklog": "$1,122,422",
     "oemConversion": {
-      "reduction": "-$200,000",
-      "totalSegment": "$200,000",
-      "barWidth": "16%"
+      "reduction": "-$0",
+      "totalSegment": "$0",
+      "barWidth": "0%"
     },
     "supplierInTransit": {
-      "reduction": "-$150,000",
-      "barWidth": "12%"
+      "reduction": "-$219,000",
+      "barWidth": "20%"
     },
     "labConfirmed": {
-      "reduction": "-$37,000",
+      "reduction": "-$36,000",
       "barWidth": "3%"
     },
     "intakeForecast": {
-      "addition": "+$225,000",
+      "addition": "+$186,153",
       "barWidth": "17%"
     },
-    "projectedClosing": "$1,125,466",
+    "projectedClosing": "$940,000",
     "forecastStatus": "Projected Miss",
-    "missAmount": "$225,466",
-    "closingBarWidth": "87%"
+    "missAmount": "$40,000",
+    "closingBarWidth": "84%"
   },
   "operationalHealth": {
     "workforceReadiness": {
-      "pct": 60,
-      "note": "3 warehouse call-outs, cross-functional support needed"
+      "pct": 90,
+      "note": "Full staffing restored with Karli return"
     },
     "labCapacity": {
-      "pct": 75,
-      "note": "3 of 4 staff present, expecting $37K output"
+      "pct": 85,
+      "note": "Forecasting $36K production today"
     },
     "warehouseEfficiency": {
-      "pct": 45,
-      "note": "Reduced capacity, early start activated for eLab kits"
+      "pct": 80,
+      "note": "Light receiving volume, quick turnaround expected"
     }
   },
   "supplierCriticalPath": [
     {
-      "name": "Inventory Assessment",
+      "name": "Bethyl (Item 7487)",
+      "status": "Critical",
+      "statusColor": "rose",
+      "timeline": "Next week QC release",
+      "detail": "China orders hard deadline month-end"
+    },
+    {
+      "name": "BT China",
+      "status": "Delayed",
+      "statusColor": "rose",
+      "timeline": "Quote needed by 3/16",
+      "detail": "New quote required before processing"
+    },
+    {
+      "name": "FedEx Clearance",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "10:00 AM completion",
-      "detail": "Katy Rose completing review to identify available-to-ship orders"
+      "timeline": "13 pieces delayed",
+      "detail": "$49K in clearance delays"
     }
   ],
   "narrative": {
-    "quote": "Friday shipped only $103K in international orders due to domestic holds and lab staffing shortfall. With 2 consecutive days of negative burn rate and MTD OTD at 82%, we need immediate cross-functional support and a documented recovery plan to prevent March from becoming a critical miss.",
+    "quote": "Backlog climbed to $1.12M as Ireland dry-ice restrictions impacted shipments, putting our month-end recovery target at risk without stronger performance next week.",
     "operationalRealities": [
       {
-        "title": "Staffing Crisis",
-        "detail": "3 warehouse staff out, lab at 75% capacity - operating below critical thresholds"
+        "title": "Ireland Dry-Ice Impact",
+        "detail": "Thursday dry-ice restrictions pulled $35K from projected shipments"
       },
       {
-        "title": "Backlog Growth",
-        "detail": "$387K above target with consecutive days of incoming exceeding shipments"
-      },
-      {
-        "title": "MTD Recovery Risk",
-        "detail": "82% OTD vs 95% target requires sustained daily outperformance to recover month"
+        "title": "Weekend Volume Gap",
+        "detail": "Friday-Monday shipping window structurally weak, will extend backlog recovery"
       }
     ],
     "strategyUpdates": [
-      "Activated early-start coverage with Alfredo handling eLab kit boxes and requested cross-functional support for pick/pack operations to address warehouse capacity constraints.",
-      "Lab team focusing on small conjugate orders for same-day completion plus one antibody release, targeting $37K output despite reduced staffing."
+      "Required daily burn rate of $212K/day to reach $900K target creates significant pressure with today's $84K plan falling well short of requirements.",
+      "Connor Lawrence's backlog projection shows base case of $940K, exceeding our $900K target and confirming recovery timeline extension risk."
     ]
   },
   "actionItems": [
     {
-      "task": "Confirm cross-functional support names for kit box and pick/pack operations",
-      "owner": "Nicole Sardo",
-      "impact": "Warehouse Efficiency",
+      "task": "Confirm Ireland dry-ice order ships in full Friday March 13 EOD",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
       "impactType": "backlog",
-      "deadline": "MAR 16 9:00 AM",
+      "deadline": "MAR 13 EOD",
       "status": "Pending",
-      "tag": "New (3/16)",
+      "tag": "New (3/13)",
       "tagType": "new",
       "priority": true
     },
     {
-      "task": "Complete inventory availability review and release confirmed shippable orders",
-      "owner": "Katy Rose",
-      "impact": "Daily Ship Volume",
+      "task": "Finalize backlog projection model and share with Matt Hagerty",
+      "owner": "Connor Lawrence",
+      "impact": "Strategic Priority",
       "impactType": "backlog",
-      "deadline": "MAR 16 10:00 AM",
+      "deadline": "MAR 14 AM",
       "status": "Pending",
-      "tag": "New (3/16)",
+      "tag": "New (3/13)",
       "tagType": "new",
       "priority": true
     },
     {
-      "task": "Document MTD OTD daily recovery targets and share with leadership",
+      "task": "Review Monday-Tuesday inbound plan ($219K in transit) against burn rate requirement",
       "owner": "Matt Hagerty",
-      "impact": "OTD Recovery",
-      "impactType": "otd",
-      "deadline": "MAR 16 EOD",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 13 EOD",
       "status": "Pending",
-      "tag": "Strategic Priority",
+      "tag": "New (3/13)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Request new BT China quote and confirm decision timeline for order processing",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 16",
+      "status": "Pending",
+      "tag": "New (3/13)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Follow up with Bethyl on item 7487 QC result and escalate to Matt Hagerty if QC fails",
+      "owner": "Danielle Coonrod",
+      "impact": "Critical Path",
+      "impactType": "backlog",
+      "deadline": "MAR 18",
+      "status": "Pending",
+      "tag": "New (3/13)",
       "tagType": "new",
       "priority": true
     },
     {
-      "task": "Confirm actual incoming order count",
-      "owner": "Katelyn Meer",
-      "impact": "Demand Planning",
+      "task": "Complete Smartsheet PO tracker testing",
+      "owner": "Connor Lawrence",
+      "impact": "Efficiency",
       "impactType": "unknown",
-      "deadline": "MAR 16 10:00 AM",
+      "deadline": "MAR 20",
       "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
-      "priority": false
-    },
-    {
-      "task": "Confirm lab output total for Monday",
-      "owner": "Gary Mack",
-      "impact": "Lab Productivity",
-      "impactType": "backlog",
-      "deadline": "MAR 16 EOD",
-      "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
-      "priority": false
-    },
-    {
-      "task": "Update backlog tracker with Monday actuals",
-      "owner": "Matt Hagerty",
-      "impact": "Backlog Tracking",
-      "impactType": "backlog",
-      "deadline": "MAR 16 EOD",
-      "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
+      "tag": "In Progress",
+      "tagType": "carryover",
       "priority": false
     }
   ],
   "history": [
     {
-      "date": "March 13, 2026",
+      "date": "March 16, 2026",
       "label": "Latest",
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "60%",
+      "backlogChange": "-$165.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 13, 2026",
+      "label": null,
       "shipped": "$142.9K",
       "mtdOTD": "85.0%",
       "health": "90%",
@@ -202,15 +221,6 @@
       "mtdOTD": "82.1%",
       "health": "91%",
       "backlogChange": "-$21.6K",
-      "backlogDirection": "down"
-    },
-    {
-      "date": "March 11, 2026",
-      "label": null,
-      "shipped": "$187.8K",
-      "mtdOTD": "83.5%",
-      "health": "91%",
-      "backlogChange": "-$25.2K",
       "backlogDirection": "down"
     }
   ]
