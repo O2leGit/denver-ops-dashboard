@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "reportDate": "2026-03-16",
+    "dataPull": "Mon 16, 8:00 AM CT",
+    "week": "Week 11",
+    "planPhase": "WEEK 11 TRIAGE PLAN",
+    "reportRef": "3/16/26 Reporting",
+    "footerDate": "March 16, 2026",
+    "stockPrice": "$53.89"
+  },
+  "kpis": {
+    "shippedYesterday": {
+      "value": "$103,752",
+      "date": "3/15",
+      "target": "$200,000",
+      "status": "Underperform"
+    },
+    "mtdOTD": {
+      "value": "82.0%",
+      "target": "95.0%",
+      "status": "At Risk"
+    },
+    "currentBacklog": {
+      "value": "$1,287,466",
+      "target": "$900,000",
+      "status": "At Risk"
+    },
+    "netDailyBurn": {
+      "value": "-$148.7K",
+      "consecutiveDays": 2,
+      "status": "At Risk"
+    }
+  },
+  "recoveryBridge": {
+    "siteBacklog": "$1,287,466",
+    "oemConversion": {
+      "reduction": "-$200,000",
+      "totalSegment": "$200,000",
+      "barWidth": "16%"
+    },
+    "supplierInTransit": {
+      "reduction": "-$150,000",
+      "barWidth": "12%"
+    },
+    "labConfirmed": {
+      "reduction": "-$37,000",
+      "barWidth": "3%"
+    },
+    "intakeForecast": {
+      "addition": "+$225,000",
+      "barWidth": "17%"
+    },
+    "projectedClosing": "$1,125,466",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$225,466",
+    "closingBarWidth": "87%"
+  },
+  "operationalHealth": {
+    "workforceReadiness": {
+      "pct": 60,
+      "note": "3 warehouse call-outs, cross-functional support needed"
+    },
+    "labCapacity": {
+      "pct": 75,
+      "note": "3 of 4 staff present, expecting $37K output"
+    },
+    "warehouseEfficiency": {
+      "pct": 45,
+      "note": "Reduced capacity, early start activated for eLab kits"
+    }
+  },
+  "supplierCriticalPath": [
+    {
+      "name": "Inventory Assessment",
+      "status": "At Risk",
+      "statusColor": "amber",
+      "timeline": "10:00 AM completion",
+      "detail": "Katy Rose completing review to identify available-to-ship orders"
+    }
+  ],
+  "narrative": {
+    "quote": "Friday shipped only $103K in international orders due to domestic holds and lab staffing shortfall. With 2 consecutive days of negative burn rate and MTD OTD at 82%, we need immediate cross-functional support and a documented recovery plan to prevent March from becoming a critical miss.",
+    "operationalRealities": [
+      {
+        "title": "Staffing Crisis",
+        "detail": "3 warehouse staff out, lab at 75% capacity - operating below critical thresholds"
+      },
+      {
+        "title": "Backlog Growth",
+        "detail": "$387K above target with consecutive days of incoming exceeding shipments"
+      },
+      {
+        "title": "MTD Recovery Risk",
+        "detail": "82% OTD vs 95% target requires sustained daily outperformance to recover month"
+      }
+    ],
+    "strategyUpdates": [
+      "Activated early-start coverage with Alfredo handling eLab kit boxes and requested cross-functional support for pick/pack operations to address warehouse capacity constraints.",
+      "Lab team focusing on small conjugate orders for same-day completion plus one antibody release, targeting $37K output despite reduced staffing."
+    ]
+  },
+  "actionItems": [
+    {
+      "task": "Confirm cross-functional support names for kit box and pick/pack operations",
+      "owner": "Nicole Sardo",
+      "impact": "Warehouse Efficiency",
+      "impactType": "backlog",
+      "deadline": "MAR 16 9:00 AM",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Complete inventory availability review and release confirmed shippable orders",
+      "owner": "Katy Rose",
+      "impact": "Daily Ship Volume",
+      "impactType": "backlog",
+      "deadline": "MAR 16 10:00 AM",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Document MTD OTD daily recovery targets and share with leadership",
+      "owner": "Matt Hagerty",
+      "impact": "OTD Recovery",
+      "impactType": "otd",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "Strategic Priority",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Confirm actual incoming order count",
+      "owner": "Katelyn Meer",
+      "impact": "Demand Planning",
+      "impactType": "unknown",
+      "deadline": "MAR 16 10:00 AM",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm lab output total for Monday",
+      "owner": "Gary Mack",
+      "impact": "Lab Productivity",
+      "impactType": "backlog",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Update backlog tracker with Monday actuals",
+      "owner": "Matt Hagerty",
+      "impact": "Backlog Tracking",
+      "impactType": "backlog",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": false
+    }
+  ],
+  "history": [
+    {
+      "date": "March 13, 2026",
+      "label": null,
+      "shipped": "$142.9K",
+      "mtdOTD": "85.0%",
+      "health": "90%",
+      "backlogChange": "+$165.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 13, 2026",
+      "label": null,
+      "shipped": "$142.9K",
+      "mtdOTD": "87.2%",
+      "health": "88%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 13, 2026",
+      "label": null,
+      "shipped": "$266.1K",
+      "mtdOTD": "82.1%",
+      "health": "87%",
+      "backlogChange": "+$14.3K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 12, 2026",
+      "label": null,
+      "shipped": "$266.1K",
+      "mtdOTD": "82.1%",
+      "health": "91%",
+      "backlogChange": "-$21.6K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 11, 2026",
+      "label": null,
+      "shipped": "$187.8K",
+      "mtdOTD": "83.5%",
+      "health": "91%",
+      "backlogChange": "-$25.2K",
+      "backlogDirection": "down"
+    }
+  ]
+}
