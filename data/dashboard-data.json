@@ -16,9 +16,9 @@
       "status": "Underperform"
     },
     "mtdOTD": {
-      "value": "87.2%",
+      "value": "85.0%",
       "target": "95.0%",
-      "status": "At Risk"
+      "status": "Underperform"
     },
     "currentBacklog": {
       "value": "$1,122,422",
@@ -26,29 +26,29 @@
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "$212.2K",
-      "consecutiveDays": 3,
-      "status": "At Risk"
+      "value": "$84.0K",
+      "consecutiveDays": 1,
+      "status": "Underperform"
     }
   },
   "recoveryBridge": {
     "siteBacklog": "$1,122,422",
     "oemConversion": {
-      "reduction": "-$0",
-      "totalSegment": "$0",
-      "barWidth": "0%"
+      "reduction": "-$150,000",
+      "totalSegment": "$150,000",
+      "barWidth": "13%"
     },
     "supplierInTransit": {
       "reduction": "-$219,000",
-      "barWidth": "19%"
+      "barWidth": "20%"
     },
     "labConfirmed": {
       "reduction": "-$36,000",
       "barWidth": "3%"
     },
     "intakeForecast": {
-      "addition": "+$113,000",
-      "barWidth": "10%"
+      "addition": "+$186,153",
+      "barWidth": "17%"
     },
     "projectedClosing": "$940,000",
     "forecastStatus": "Projected Miss",
@@ -57,60 +57,60 @@
   },
   "operationalHealth": {
     "workforceReadiness": {
-      "pct": 85,
-      "note": "Full staffing restored with Karli return"
+      "pct": 95,
+      "note": "Carly returned, team at full strength"
     },
     "labCapacity": {
       "pct": 90,
-      "note": "Full team strength, $36K forecast today"
+      "note": "$36K production forecast today"
     },
     "warehouseEfficiency": {
-      "pct": 88,
-      "note": "Light receiving volume, quick turnaround expected"
+      "pct": 85,
+      "note": "Light receiving, quick turnaround expected"
     }
   },
   "supplierCriticalPath": [
     {
-      "name": "Ireland Dry-Ice",
+      "name": "Bethyl (item 7487)",
       "status": "Critical",
       "statusColor": "rose",
-      "timeline": "Friday shipment partial",
-      "detail": "Restriction cut $35K from projections"
+      "timeline": "QC result by Mar 18",
+      "detail": "Required for China orders with month-end deadline"
     },
     {
-      "name": "Bethyl QC",
-      "status": "At Risk",
-      "statusColor": "amber",
-      "timeline": "Next week release",
-      "detail": "Item 7487 critical for China orders"
+      "name": "BT China",
+      "status": "Delayed",
+      "statusColor": "rose",
+      "timeline": "Quote needed by Mar 16",
+      "detail": "Large order pricing question blocks processing"
     },
     {
       "name": "FedEx Clearance",
-      "status": "Delayed",
-      "statusColor": "rose",
-      "timeline": "13 pieces delayed",
-      "detail": "$49K in clearance delays"
+      "status": "At Risk",
+      "statusColor": "amber",
+      "timeline": "Resolution by Mar 13 EOD",
+      "detail": "$49K in clearance delays, 13 pieces"
     }
   ],
   "narrative": {
-    "quote": "Backlog climbed $13K to $1.12M as Ireland dry-ice restrictions disrupted our shipping momentum. With Friday's low international volume and weekend structural weakness ahead, we're at risk of missing our $900K target without stronger performance next week.",
+    "quote": "Backlog climbed to $1.12M as Ireland dry-ice restrictions cut projected shipments, putting our recovery timeline at risk despite full warehouse staffing returning.",
     "operationalRealities": [
       {
-        "title": "International Shipping Constraints",
-        "detail": "Ireland dry-ice restrictions removed $35K from Wednesday shipments, highlighting vulnerability in international logistics"
+        "title": "Ireland Dry-Ice Impact",
+        "detail": "Thursday restrictions pulled ~$35K from Wednesday shipments, driving majority of backlog increase"
       },
       {
-        "title": "Weekend Volume Gap",
-        "detail": "Friday-Monday represents structurally weak shipping window that will extend backlog recovery timeline"
+        "title": "Weekend Shipping Gap",
+        "detail": "Friday-Monday represent structurally weak shipping days, will add to backlog before Tuesday recovery"
       },
       {
-        "title": "QC Dependencies",
-        "detail": "Bethyl item 7487 remains critical path for China orders with hard month-end deadline"
+        "title": "Critical Item Dependencies",
+        "detail": "Bethyl item 7487 QC result and BT China quote requirements pose month-end shipping risks"
       }
     ],
     "strategyUpdates": [
-      "MTD revenue at $2.1M through 9 shipping days requires $212K daily burn to reach target, but today's $84K plan falls well short of requirement.",
-      "Backlog projection shows base case of $940K by month-end, exceeding our $900K target and confirming recovery timeline extension without operational improvements."
+      "Required daily burn rate of $212K/day to reach $900K target significantly exceeds today's $84K shipping plan, extending recovery timeline beyond month-end.",
+      "Connor Lawrence's backlog projection shows base case of $940K, exceeding our $900K target and confirming recovery is at risk without stronger shipping performance next week."
     ]
   },
   "actionItems": [
@@ -130,7 +130,7 @@
       "owner": "Connor Lawrence",
       "impact": "Strategic Priority",
       "impactType": "backlog",
-      "deadline": "MAR 14 AM",
+      "deadline": "MAR 14",
       "status": "Pending",
       "tag": "New (3/13)",
       "tagType": "new",
@@ -148,10 +148,10 @@
       "priority": false
     },
     {
-      "task": "Obtain clearance status on Wednesday FedEx delays",
+      "task": "Obtain clearance status on Wednesday FedEx delays and escalate if unresolved",
       "owner": "Kayla Hanks",
-      "impact": "Efficiency",
-      "impactType": "unknown",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
       "deadline": "MAR 13 EOD",
       "status": "Pending",
       "tag": "New (3/13)",
@@ -159,11 +159,11 @@
       "priority": false
     },
     {
-      "task": "Confirm $36K production output and cutoff timing",
-      "owner": "Gary Mack",
+      "task": "Confirm $36K production output and cutoff timing for today's shipping window",
+      "owner": "Gary Mack / Chandra Gottschling",
       "impact": "Backlog",
       "impactType": "backlog",
-      "deadline": "MAR 13 2PM",
+      "deadline": "MAR 13",
       "status": "Pending",
       "tag": "New (3/13)",
       "tagType": "new",
@@ -181,7 +181,7 @@
       "priority": true
     },
     {
-      "task": "Follow up with Bethyl on item 7487 QC result",
+      "task": "Follow up with Bethyl on item 7487 QC result and escalate to Matt Hagerty if QC fails",
       "owner": "Danielle Coonrod",
       "impact": "Strategic Priority",
       "impactType": "backlog",
@@ -201,12 +201,32 @@
       "tag": "New (3/13)",
       "tagType": "new",
       "priority": false
+    },
+    {
+      "task": "Complete product 18129 customer notification and website update",
+      "owner": "Chandra Gottschling",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 18",
+      "status": "Pending",
+      "tag": "New (3/13)",
+      "tagType": "new",
+      "priority": false
     }
   ],
   "history": [
     {
       "date": "March 13, 2026",
       "label": "Latest",
+      "shipped": "$142.9K",
+      "mtdOTD": "87.2%",
+      "health": "88%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 13, 2026",
+      "label": null,
       "shipped": "$266.1K",
       "mtdOTD": "82.1%",
       "health": "87%",
