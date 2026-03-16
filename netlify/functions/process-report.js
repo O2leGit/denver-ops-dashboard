@@ -115,24 +115,26 @@ exports.handler = async (event) => {
 
   // Handle file upload (multipart form data)
   try {
-    const { password, fileContent, fileName } = parseMultipart(event);
+    const { password, fileBuffer, fileName } = parseMultipart(event);
 
     // Verify password
     if (password !== ADMIN_PASSWORD) {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Unauthorized" }) };
     }
 
+    if (!fileBuffer || fileBuffer.length === 0) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "No file received or file was empty." }) };
+    }
+
     // Extract text from file
     let reportText;
     if (fileName.toLowerCase().endsWith(".pdf")) {
       const pdfParse = require("pdf-parse");
-      const buffer = Buffer.from(fileContent, "binary");
-      const pdfData = await pdfParse(buffer);
+      const pdfData = await pdfParse(fileBuffer);
       reportText = pdfData.text;
     } else {
       const mammoth = require("mammoth");
-      const buffer = Buffer.from(fileContent, "binary");
-      const result = await mammoth.extractRawText({ buffer });
+      const result = await mammoth.extractRawText({ buffer: fileBuffer });
       reportText = result.value;
     }
 
@@ -239,34 +241,61 @@ exports.handler = async (event) => {
   }
 };
 
-// ── Multipart Parser ──
+// ── Multipart Parser (binary-safe) ──
 function parseMultipart(event) {
   const boundary = (event.headers["content-type"] || "").split("boundary=")[1];
   if (!boundary) throw new Error("No multipart boundary found");
 
-  const body = event.isBase64Encoded
-    ? Buffer.from(event.body, "base64").toString("binary")
-    : event.body;
+  // Work with raw Buffer to preserve binary integrity (critical for PDFs)
+  const rawBuffer = event.isBase64Encoded
+    ? Buffer.from(event.body, "base64")
+    : Buffer.from(event.body, "binary");
 
-  const parts = body.split("--" + boundary);
+  const boundaryBytes = Buffer.from("--" + boundary);
   let password = "";
-  let fileContent = "";
+  let fileBuffer = null;
   let fileName = "";
 
-  for (const part of parts) {
-    if (part.includes('name="password"')) {
-      password = part.split("\r\n\r\n")[1].split("\r\n")[0].trim();
+  // Find all boundary positions
+  const positions = [];
+  let searchStart = 0;
+  while (true) {
+    const idx = rawBuffer.indexOf(boundaryBytes, searchStart);
+    if (idx === -1) break;
+    positions.push(idx);
+    searchStart = idx + boundaryBytes.length;
+  }
+
+  // Parse each part
+  for (let i = 0; i < positions.length - 1; i++) {
+    const partStart = positions[i] + boundaryBytes.length;
+    const partEnd = positions[i + 1];
+    const partBuffer = rawBuffer.slice(partStart, partEnd);
+    const partStr = partBuffer.toString("utf-8", 0, Math.min(500, partBuffer.length));
+
+    // Find header/body separator (\r\n\r\n)
+    const sepIdx = partBuffer.indexOf("\r\n\r\n");
+    if (sepIdx === -1) continue;
+
+    const headerStr = partBuffer.toString("utf-8", 0, sepIdx);
+    const bodyStart = sepIdx + 4;
+    // Body ends before trailing \r\n
+    let bodyEnd = partBuffer.length;
+    if (partBuffer[bodyEnd - 2] === 0x0d && partBuffer[bodyEnd - 1] === 0x0a) {
+      bodyEnd -= 2;
     }
-    if (part.includes('name="file"')) {
-      const filenameMatch = part.match(/filename="([^"]+)"/);
+
+    if (headerStr.includes('name="password"')) {
+      password = partBuffer.toString("utf-8", bodyStart, bodyEnd).trim();
+    }
+    if (headerStr.includes('name="file"')) {
+      const filenameMatch = headerStr.match(/filename="([^"]+)"/);
       if (filenameMatch) fileName = filenameMatch[1];
-      const contentStart = part.indexOf("\r\n\r\n") + 4;
-      const contentEnd = part.lastIndexOf("\r\n");
-      fileContent = part.substring(contentStart, contentEnd);
+      fileBuffer = partBuffer.slice(bodyStart, bodyEnd);
     }
   }
 
-  return { password, fileContent, fileName };
+  return { password, fileBuffer, fileName };
 }
 
 // ── GitHub API Helpers ──
