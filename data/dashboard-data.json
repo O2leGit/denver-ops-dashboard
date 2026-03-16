@@ -1,186 +1,195 @@
 {
   "meta": {
-    "reportDate": "2026-03-13",
-    "dataPull": "Mar 13, 3:52 PM CT",
-    "week": "Week 3",
-    "planPhase": "WEEK 3 TRIAGE PLAN",
-    "reportRef": "3/13/26 Reporting",
-    "footerDate": "March 13, 2026",
+    "reportDate": "2026-03-16",
+    "dataPull": "Mon 16, 9:00 AM CT",
+    "week": "Week 11",
+    "planPhase": "WEEK 11 TRIAGE PLAN",
+    "reportRef": "3/16/26 Reporting",
+    "footerDate": "March 16, 2026",
     "stockPrice": "$53.89"
   },
   "kpis": {
     "shippedYesterday": {
-      "value": "$142,898",
-      "date": "3/12",
-      "target": "$212,163",
+      "value": "$103,752",
+      "date": "3/15",
+      "target": "$305,000",
       "status": "Underperform"
     },
     "mtdOTD": {
-      "value": "85.0%",
+      "value": "82.0%",
       "target": "95.0%",
       "status": "At Risk"
     },
     "currentBacklog": {
-      "value": "$1,122,422",
+      "value": "$1,287,466",
       "target": "$900,000",
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "$212.2K",
-      "consecutiveDays": 3,
+      "value": "-$148.7K",
+      "consecutiveDays": 2,
       "status": "At Risk"
     }
   },
   "recoveryBridge": {
-    "siteBacklog": "$1,122,422",
+    "siteBacklog": "$1,287,466",
     "oemConversion": {
-      "reduction": "-$0",
-      "totalSegment": "$0",
-      "barWidth": "0%"
+      "reduction": "-$218,000",
+      "totalSegment": "$218,000",
+      "barWidth": "17%"
     },
     "supplierInTransit": {
-      "reduction": "-$219,000",
-      "barWidth": "20%"
+      "reduction": "-$50,000",
+      "barWidth": "4%"
     },
     "labConfirmed": {
-      "reduction": "-$36,000",
+      "reduction": "-$37,000",
       "barWidth": "3%"
     },
     "intakeForecast": {
-      "addition": "+$186,153",
-      "barWidth": "17%"
+      "addition": "+$200,000",
+      "barWidth": "16%"
     },
-    "projectedClosing": "$940,000",
+    "projectedClosing": "$1,182,466",
     "forecastStatus": "Projected Miss",
-    "missAmount": "$40,000",
-    "closingBarWidth": "84%"
+    "missAmount": "$282,466",
+    "closingBarWidth": "92%"
   },
   "operationalHealth": {
     "workforceReadiness": {
-      "pct": 90,
-      "note": "Full staffing restored with Karli return"
+      "pct": 70,
+      "note": "3 warehouse absences, 75% lab capacity"
     },
     "labCapacity": {
-      "pct": 85,
-      "note": "Forecasting $36K production today"
+      "pct": 75,
+      "note": "3 of 4 staff present, improved from Friday"
     },
     "warehouseEfficiency": {
-      "pct": 80,
-      "note": "Light receiving volume, quick turnaround expected"
+      "pct": 65,
+      "note": "Early start, cross-functional support requested"
     }
   },
   "supplierCriticalPath": [
     {
-      "name": "Bethyl (Item 7487)",
+      "name": "SuperBioChips",
       "status": "Critical",
       "statusColor": "rose",
-      "timeline": "Next week QC release",
-      "detail": "China orders hard deadline month-end"
+      "timeline": "Clearance delay",
+      "detail": "Indianapolis customs delay, $1,752 value"
     },
     {
-      "name": "BT China",
+      "name": "Bio-Rad UK",
       "status": "Delayed",
       "statusColor": "rose",
-      "timeline": "Quote needed by 3/16",
-      "detail": "New quote required before processing"
+      "timeline": "ETA 3/23",
+      "detail": "UK warehouse shipment late, $1,545 value"
     },
     {
-      "name": "FedEx Clearance",
+      "name": "Vector Labs",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "13 pieces delayed",
-      "detail": "$49K in clearance delays"
+      "timeline": "Expedite pending",
+      "detail": "Base unit expedite initiated, $759 + $1,248"
+    },
+    {
+      "name": "GeneTex",
+      "status": "On Track",
+      "statusColor": "emerald",
+      "timeline": "ETA 3/25",
+      "detail": "5-7 day lead time tracking normally"
     }
   ],
   "narrative": {
-    "quote": "Backlog climbed to $1.12M as Ireland dry-ice restrictions impacted shipments, putting our month-end recovery target at risk without stronger performance next week.",
+    "quote": "Friday's international-only shipping and reduced staffing drove backlog to $1.29M, but today's projected $305K ship plan with cross-functional warehouse support provides our primary recovery lever. Three supplier actions require immediate attention, particularly SuperBioChips clearance delays.",
     "operationalRealities": [
       {
-        "title": "Ireland Dry-Ice Impact",
-        "detail": "Thursday dry-ice restrictions pulled $35K from projected shipments"
+        "title": "Staffing Constraints",
+        "detail": "3 warehouse absences offset by early start and cross-functional support"
       },
       {
-        "title": "Weekend Volume Gap",
-        "detail": "Friday-Monday shipping window structurally weak, will extend backlog recovery"
+        "title": "Lab Recovery",
+        "detail": "75% capacity today vs 50% Friday, targeting same-day completions"
+      },
+      {
+        "title": "Order Flow Improvement",
+        "detail": "~200 orders expected vs ~150 late last week"
       }
     ],
     "strategyUpdates": [
-      "Required daily burn rate of $212K/day to reach $900K target creates significant pressure with today's $84K plan falling well short of requirements.",
-      "Connor Lawrence's backlog projection shows base case of $940K, exceeding our $900K target and confirming recovery timeline extension risk."
+      "Today's $305K ship plan ($218K in-stock + $50K same-day + $37K lab) represents the primary backlog reduction lever, requiring coordinated warehouse support to execute.",
+      "Supplier critical path management intensified with three active escalations requiring customs clearance follow-up and expedite confirmations by EOD."
     ]
   },
   "actionItems": [
     {
-      "task": "Confirm Ireland dry-ice order ships in full Friday March 13 EOD",
-      "owner": "Danielle Coonrod",
-      "impact": "Backlog",
-      "impactType": "backlog",
-      "deadline": "MAR 13 EOD",
-      "status": "Pending",
-      "tag": "New (3/13)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Finalize backlog projection model and share with Matt Hagerty",
-      "owner": "Connor Lawrence",
-      "impact": "Strategic Priority",
-      "impactType": "backlog",
-      "deadline": "MAR 14 AM",
-      "status": "Pending",
-      "tag": "New (3/13)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Review Monday-Tuesday inbound plan ($219K in transit) against burn rate requirement",
-      "owner": "Matt Hagerty",
-      "impact": "Backlog",
-      "impactType": "backlog",
-      "deadline": "MAR 13 EOD",
-      "status": "Pending",
-      "tag": "New (3/13)",
-      "tagType": "new",
-      "priority": false
-    },
-    {
-      "task": "Request new BT China quote and confirm decision timeline for order processing",
-      "owner": "Danielle Coonrod",
-      "impact": "Backlog",
-      "impactType": "backlog",
-      "deadline": "MAR 16",
-      "status": "Pending",
-      "tag": "New (3/13)",
-      "tagType": "new",
-      "priority": false
-    },
-    {
-      "task": "Follow up with Bethyl on item 7487 QC result and escalate to Matt Hagerty if QC fails",
-      "owner": "Danielle Coonrod",
-      "impact": "Critical Path",
-      "impactType": "backlog",
-      "deadline": "MAR 18",
-      "status": "Pending",
-      "tag": "New (3/13)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Complete Smartsheet PO tracker testing",
-      "owner": "Connor Lawrence",
+      "task": "Secure cross-functional warehouse support for kit assembly and pick/pack operations",
+      "owner": "Nicole Sardo",
       "impact": "Efficiency",
       "impactType": "unknown",
-      "deadline": "MAR 20",
+      "deadline": "MAR 16 10:00 AM",
       "status": "Pending",
-      "tag": "In Progress",
-      "tagType": "carryover",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Complete inventory availability review and confirm orders releasing to ship",
+      "owner": "Katy Rose",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 16 11:00 AM",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Contact SuperBioChips/customs broker for Indianapolis clearance status and revised ETA",
+      "owner": "Nicole Gray",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm Vector Labs response on base unit expedite",
+      "owner": "Katy Rose",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm Bio-Rad UK shipment tracking for 3/23 arrival",
+      "owner": "Nicole Gray",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "New (3/16)",
+      "tagType": "new",
       "priority": false
     }
   ],
   "history": [
     {
-      "date": "March 16, 2026",
+      "date": "March 13, 2026",
       "label": "Latest",
+      "shipped": "$142.9K",
+      "mtdOTD": "85.0%",
+      "health": "85%",
+      "backlogChange": "+$165.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
       "shipped": "$103.8K",
       "mtdOTD": "82.0%",
       "health": "60%",
@@ -212,15 +221,6 @@
       "mtdOTD": "82.1%",
       "health": "87%",
       "backlogChange": "+$14.3K",
-      "backlogDirection": "down"
-    },
-    {
-      "date": "March 12, 2026",
-      "label": null,
-      "shipped": "$266.1K",
-      "mtdOTD": "82.1%",
-      "health": "91%",
-      "backlogChange": "-$21.6K",
       "backlogDirection": "down"
     }
   ]
