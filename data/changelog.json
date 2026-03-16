@@ -1,5 +1,54 @@
 [
   {
+    "timestamp": "2026-03-16T14:59:55.531Z",
+    "fromDate": "2026-03-13",
+    "toDate": "2026-03-13",
+    "fileName": "Nicole report- Fw_ Denver Operations _ 03.13.2026 _ Week 3 of Triage Plan.pdf",
+    "changeCount": 8,
+    "changes": [
+      {
+        "field": "kpis.mtdOTD",
+        "from": "87.2%",
+        "to": "85.0%"
+      },
+      {
+        "field": "kpis.mtdOTD.status",
+        "from": "At Risk",
+        "to": "Underperform"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$212.2K",
+        "to": "$84.0K"
+      },
+      {
+        "field": "kpis.netDailyBurn.status",
+        "from": "At Risk",
+        "to": "Underperform"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "85%",
+        "to": "95%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "88%",
+        "to": "85%"
+      },
+      {
+        "field": "actionItems",
+        "from": "8 items",
+        "to": "9 items (9 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Ireland Dry-Ice:Critical,Bethyl QC:At Risk,FedEx Clearance:Delayed",
+        "to": "Bethyl (item 7487):Critical,BT China:Delayed,FedEx Clearance:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-14T21:09:03.352Z",
     "fromDate": "2026-03-13",
     "toDate": "2026-03-13",
