@@ -274,7 +274,7 @@ async function getGitHubFile(token, repo, path) {
   try {
     const resp = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `token ${token}`,
         Accept: "application/vnd.github.v3+json",
       },
     });
@@ -292,7 +292,7 @@ async function updateGitHubFile(token, repo, path, content, message, sha) {
   const resp = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
     method: "PUT",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `token ${token}`,
       Accept: "application/vnd.github.v3+json",
       "Content-Type": "application/json",
     },
@@ -301,7 +301,7 @@ async function updateGitHubFile(token, repo, path, content, message, sha) {
 
   if (!resp.ok) {
     const err = await resp.json();
-    throw new Error(`GitHub commit failed: ${err.message}`);
+    throw new Error(`GitHub commit failed (${resp.status}): ${err.message} [repo=${repo}, path=${path}]`);
   }
   return await resp.json();
 }
