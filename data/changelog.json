@@ -1,5 +1,79 @@
 [
   {
+    "timestamp": "2026-03-16T15:28:39.682Z",
+    "fromDate": "2026-03-13",
+    "toDate": "2026-03-16",
+    "fileName": "Denver_Daily_Report_03-16-2026.docx",
+    "changeCount": 13,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$142,898",
+        "to": "$103,752"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "85.0%",
+        "to": "82.0%"
+      },
+      {
+        "field": "kpis.mtdOTD.status",
+        "from": "Underperform",
+        "to": "At Risk"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,122,422",
+        "to": "$1,287,466"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$84.0K",
+        "to": "-$148.7K"
+      },
+      {
+        "field": "kpis.netDailyBurn.status",
+        "from": "Underperform",
+        "to": "At Risk"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,122,422",
+        "to": "$1,287,466"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$940,000",
+        "to": "$1,125,466"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "95%",
+        "to": "60%"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "90%",
+        "to": "75%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "85%",
+        "to": "45%"
+      },
+      {
+        "field": "actionItems",
+        "from": "9 items",
+        "to": "6 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Bethyl (item 7487):Critical,BT China:Delayed,FedEx Clearance:At Risk",
+        "to": "Inventory Assessment:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-16T14:59:55.531Z",
     "fromDate": "2026-03-13",
     "toDate": "2026-03-13",
