@@ -1,5 +1,69 @@
 [
   {
+    "timestamp": "2026-03-16T15:34:12.047Z",
+    "fromDate": "2026-03-16",
+    "toDate": "2026-03-13",
+    "fileName": "Nicole report- Fw_ Denver Operations _ 03.13.2026 _ Week 3 of Triage Plan.pdf",
+    "changeCount": 11,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$103,752",
+        "to": "$142,898"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "82.0%",
+        "to": "85.0%"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,287,466",
+        "to": "$1,122,422"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "-$148.7K",
+        "to": "$212.2K"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,287,466",
+        "to": "$1,122,422"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$1,125,466",
+        "to": "$940,000"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "60%",
+        "to": "90%"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "75%",
+        "to": "85%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "45%",
+        "to": "80%"
+      },
+      {
+        "field": "actionItems",
+        "from": "6 items",
+        "to": "6 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Inventory Assessment:At Risk",
+        "to": "Bethyl (Item 7487):Critical,BT China:Delayed,FedEx Clearance:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-16T15:28:39.682Z",
     "fromDate": "2026-03-13",
     "toDate": "2026-03-16",
