@@ -1,5 +1,44 @@
 [
   {
+    "timestamp": "2026-03-17T13:11:43.129Z",
+    "fromDate": "2026-03-16",
+    "toDate": "2026-03-16",
+    "fileName": "03-16 Denver Operations _ 03.16.2026 _ Week 4 of Triage Plan.pdf",
+    "changeCount": 6,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday.status",
+        "from": "At Risk",
+        "to": "Underperform"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$387K",
+        "to": "-$148.7K"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$802,598",
+        "to": "$970,000"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "50%",
+        "to": "70%"
+      },
+      {
+        "field": "actionItems",
+        "from": "4 items",
+        "to": "5 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "SuperBioChips:Delayed,Bio-Rad UK:Delayed,Vector Labs:At Risk",
+        "to": "SuperBioChips Laboratories:Delayed,Bio-Rad UK:Critical,Vector Labs:At Risk,GeneTex:On Track"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-17T12:52:42.949Z",
     "fromDate": "2026-03-16",
     "toDate": "2026-03-16",
