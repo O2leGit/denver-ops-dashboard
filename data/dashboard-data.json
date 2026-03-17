@@ -1,7 +1,7 @@
 {
   "meta": {
     "reportDate": "2026-03-16",
-    "dataPull": "Mon 16, 6:20 PM CT",
+    "dataPull": "Mon 03/16, 6:19 PM CT",
     "week": "Week 4",
     "planPhase": "WEEK 4 TRIAGE PLAN",
     "reportRef": "3/16/26 Reporting",
@@ -11,9 +11,9 @@
   "kpis": {
     "shippedYesterday": {
       "value": "$103,752",
-      "date": "3/13",
-      "target": "$305,000",
-      "status": "Underperform"
+      "date": "3/15",
+      "target": "$252,485",
+      "status": "At Risk"
     },
     "mtdOTD": {
       "value": "82.0%",
@@ -26,101 +26,116 @@
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "-$148.7K",
-      "consecutiveDays": 2,
+      "value": "$387K",
+      "consecutiveDays": 3,
       "status": "At Risk"
     }
   },
   "recoveryBridge": {
     "siteBacklog": "$1,287,466",
     "oemConversion": {
-      "reduction": "-$200,000",
-      "totalSegment": "$200,000",
-      "barWidth": "16%"
+      "reduction": "-$767,157",
+      "totalSegment": "$767,157",
+      "barWidth": "60%"
     },
     "supplierInTransit": {
-      "reduction": "-$150,000",
-      "barWidth": "12%"
+      "reduction": "-$45,080",
+      "barWidth": "4%"
     },
     "labConfirmed": {
-      "reduction": "-$37,000",
-      "barWidth": "3%"
+      "reduction": "-$21,008",
+      "barWidth": "2%"
     },
     "intakeForecast": {
-      "addition": "+$100,000",
-      "barWidth": "8%"
+      "addition": "+$348,377",
+      "barWidth": "27%"
     },
-    "projectedClosing": "$970,000",
-    "forecastStatus": "On Track",
-    "missAmount": "$70,000",
-    "closingBarWidth": "75%"
+    "projectedClosing": "$802,598",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$387,466",
+    "closingBarWidth": "62%"
   },
   "operationalHealth": {
     "workforceReadiness": {
       "pct": 75,
-      "note": "3 warehouse absences, lab at 75% capacity"
+      "note": "3 of 4 lab staff present, 3 warehouse absences"
     },
     "labCapacity": {
       "pct": 75,
-      "note": "3 of 4 staff present, improved from Friday's 50%"
+      "note": "$27K completed vs plan, staffing shortage impact"
     },
     "warehouseEfficiency": {
-      "pct": 70,
-      "note": "Cross-functional support requested for pick/pack"
+      "pct": 50,
+      "note": "International-only shipments, domestic holds in effect"
     }
   },
   "supplierCriticalPath": [
     {
       "name": "SuperBioChips",
-      "status": "Critical",
+      "status": "Delayed",
       "statusColor": "rose",
-      "timeline": "Clearance delay",
-      "detail": "Indianapolis customs clearance, $1,752 order"
+      "timeline": "Indianapolis clearance delay",
+      "detail": "SO-NB0202099 item NBP2-30290 currently on clearance delay"
     },
     {
       "name": "Bio-Rad UK",
       "status": "Delayed",
       "statusColor": "rose",
       "timeline": "ETA 3/23",
-      "detail": "$1,544 order, 5-7 day lead time"
+      "detail": "SO-NB0202063 item NB100-65495 shipping from UK warehouse, 5-7 business days"
     },
     {
       "name": "Vector Labs",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "Expedite initiated",
-      "detail": "$2,007 in orders, awaiting response"
-    },
-    {
-      "name": "GeneTex",
-      "status": "On Track",
-      "statusColor": "emerald",
-      "timeline": "ETA 3/25",
-      "detail": "$1,686 order on schedule"
+      "timeline": "Base unit expedite by EOD 3/16",
+      "detail": "SO-NB0202924 NBP3-11395PE awaiting confirmation on supplier response"
     }
   ],
   "narrative": {
-    "quote": "Backlog climbed to $1.29M due to Friday's international-only shipping and sustained pattern of incoming orders exceeding outbound shipments. Today's $305K ship plan is our primary lever to begin drawing down the backlog with cross-functional support securing pick/pack capacity.",
+    "quote": "Friday's international-only shipping widened the gap to our $900K target, with backlog climbing to $1.29M despite operational improvements. We're executing cross-functional support strategies while managing reduced warehouse capacity from staffing challenges.",
     "operationalRealities": [
       {
-        "title": "Staffing Constraints",
-        "detail": "3 warehouse absences and lab at 75% capacity requiring cross-functional support"
+        "title": "Shipping Constraints",
+        "detail": "International-only protocol limits daily output, domestic holds reducing warehouse efficiency"
       },
       {
-        "title": "Shipping Protocol Impact",
-        "detail": "Friday international-only shipping ($103K vs $252K incoming) drove net backlog increase"
+        "title": "Staffing Challenges",
+        "detail": "Lab at 75% capacity with 3 of 4 staff, warehouse managing 3 absences with early start mitigation"
       },
       {
-        "title": "Supplier Dependencies",
-        "detail": "Multiple supplier delays affecting customer delivery performance"
+        "title": "Backlog Growth",
+        "detail": "Net increase of $148K driven by incoming orders exceeding outbound shipments for 3 consecutive days"
       }
     ],
     "strategyUpdates": [
-      "EOQ backlog projected to land at ~$970K through targeted inventory management and shipping acceleration.",
-      "Warehouse supervisor replacement in progress with HR conducting phone interviews for multiple candidates."
+      "Cross-functional support initiatives activated with Nicole Sardo securing additional warehouse hands for kit assembly and afternoon pick/pack operations to offset headcount gaps.",
+      "Supplier expedite actions underway across 4 critical orders totaling $4.6K, with Vector Labs base unit confirmation pending EOD and SuperBioChips customs clearance tracking in Indianapolis."
     ]
   },
   "actionItems": [
+    {
+      "task": "Complete inventory availability/EOQ Purchasing Pull In update",
+      "owner": "Katy Rose",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17",
+      "status": "Pending",
+      "tag": "Carryover",
+      "tagType": "carryover",
+      "priority": true
+    },
+    {
+      "task": "Secure cross-functional warehouse support and confirm afternoon pick/pack capacity",
+      "owner": "Nicole Sardo",
+      "impact": "Efficiency",
+      "impactType": "unknown",
+      "deadline": "MAR 16 EOD",
+      "status": "Pending",
+      "tag": "In Progress",
+      "tagType": "new",
+      "priority": true
+    },
     {
       "task": "Contact SuperBioChips/customs broker for Indianapolis clearance status and revised delivery ETA",
       "owner": "Nicole Gray",
@@ -130,7 +145,7 @@
       "status": "Pending",
       "tag": "New (3/16)",
       "tagType": "new",
-      "priority": true
+      "priority": false
     },
     {
       "task": "Confirm Vector Labs response on base unit expedite",
@@ -142,45 +157,21 @@
       "tag": "New (3/16)",
       "tagType": "new",
       "priority": false
-    },
-    {
-      "task": "Complete inventory availability/EOQ Purchasing Pull In update",
-      "owner": "Katy Rose",
-      "impact": "Backlog",
-      "impactType": "backlog",
-      "deadline": "MAR 17",
-      "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Secure cross-functional warehouse support and confirm afternoon pick/pack capacity",
-      "owner": "Nicole Sardo",
-      "impact": "Efficiency",
-      "impactType": "unknown",
-      "deadline": "MAR 16",
-      "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Confirm Bio-Rad UK shipment is on track for 3/23 arrival",
-      "owner": "Nicole Gray",
-      "impact": "OTD Accur.",
-      "impactType": "otd",
-      "deadline": "MAR 17",
-      "status": "Pending",
-      "tag": "New (3/16)",
-      "tagType": "new",
-      "priority": false
     }
   ],
   "history": [
     {
       "date": "March 16, 2026",
       "label": "Latest",
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "73%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
       "shipped": "$103.8K",
       "mtdOTD": "82.0%",
       "health": "75%",
@@ -212,15 +203,6 @@
       "mtdOTD": "82.0%",
       "health": "60%",
       "backlogChange": "-$165.0K",
-      "backlogDirection": "down"
-    },
-    {
-      "date": "March 13, 2026",
-      "label": null,
-      "shipped": "$142.9K",
-      "mtdOTD": "85.0%",
-      "health": "90%",
-      "backlogChange": "+$165.0K",
       "backlogDirection": "down"
     }
   ]
