@@ -1,5 +1,49 @@
 [
   {
+    "timestamp": "2026-03-17T12:47:07.330Z",
+    "fromDate": "2026-03-16",
+    "toDate": "2026-03-16",
+    "fileName": "Chris O'Toole, Sr. Mail - Fw_ Denver Operations _ 03.16.2026 _ Week 4 of Triage Plan.pdf",
+    "changeCount": 7,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday.status",
+        "from": "At Risk",
+        "to": "Underperform"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$387K",
+        "to": "-$148.7K"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$475,229",
+        "to": "$970,000"
+      },
+      {
+        "field": "recoveryBridge.forecastStatus",
+        "from": "Projected Miss",
+        "to": "On Track"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "75%",
+        "to": "70%"
+      },
+      {
+        "field": "actionItems",
+        "from": "5 items",
+        "to": "5 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Vector Labs:Critical,SuperBioChips:Delayed,Bio-Rad UK:Delayed,GeneTex:On Track",
+        "to": "SuperBioChips:Critical,Bio-Rad UK:Delayed,Vector Labs:At Risk,GeneTex:On Track"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-17T12:44:47.089Z",
     "fromDate": "2026-03-16",
     "toDate": "2026-03-16",
