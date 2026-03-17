@@ -1,5 +1,49 @@
 [
   {
+    "timestamp": "2026-03-17T12:44:47.089Z",
+    "fromDate": "2026-03-16",
+    "toDate": "2026-03-16",
+    "fileName": "03-16 Executive Summary.pdf",
+    "changeCount": 7,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday.status",
+        "from": "Underperform",
+        "to": "At Risk"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "-$148.7K",
+        "to": "$387K"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$1,182,466",
+        "to": "$475,229"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "70%",
+        "to": "75%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "65%",
+        "to": "75%"
+      },
+      {
+        "field": "actionItems",
+        "from": "5 items",
+        "to": "5 items (4 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "SuperBioChips:Critical,Bio-Rad UK:Delayed,Vector Labs:At Risk,GeneTex:On Track",
+        "to": "Vector Labs:Critical,SuperBioChips:Delayed,Bio-Rad UK:Delayed,GeneTex:On Track"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-16T20:52:33.532Z",
     "fromDate": "2026-03-13",
     "toDate": "2026-03-16",
