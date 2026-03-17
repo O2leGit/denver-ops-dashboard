@@ -746,8 +746,19 @@
                 setStepStatus('step-upload', 'done');
 
                 if (!resp.ok) {
-                    const err = await resp.json();
-                    throw new Error(err.error || 'Processing failed');
+                    const text = await resp.text();
+                    let errMsg = 'Processing failed';
+                    try {
+                        const err = JSON.parse(text);
+                        errMsg = err.error || errMsg;
+                    } catch {
+                        if (text.includes('<HTML') || text.includes('<html')) {
+                            errMsg = 'Request timed out. The PDF may be too large. Try a smaller file or convert to DOCX first.';
+                        } else {
+                            errMsg = text.substring(0, 200);
+                        }
+                    }
+                    throw new Error(errMsg);
                 }
 
                 setStepStatus('step-extract', 'done');

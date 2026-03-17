@@ -5,6 +5,9 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions."process-report"]
+  timeout = 60
+
 [[headers]]
   for = "/data/*"
   [headers.values]
