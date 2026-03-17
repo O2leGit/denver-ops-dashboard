@@ -126,31 +126,72 @@ exports.handler = async (event) => {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "No file received or file was empty." }) };
     }
 
-    // Extract text from file
-    let reportText;
+    // Extract text or prepare for direct PDF vision
+    const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
+    let message;
+
     if (fileName.toLowerCase().endsWith(".pdf")) {
-      const pdfParse = require("pdf-parse");
-      const pdfData = await pdfParse(fileBuffer);
-      reportText = pdfData.text;
+      // Try text extraction first
+      let reportText = "";
+      try {
+        const pdfParse = require("pdf-parse");
+        const pdfData = await pdfParse(fileBuffer);
+        reportText = pdfData.text || "";
+      } catch (e) {
+        console.log("pdf-parse failed, falling back to Claude vision:", e.message);
+      }
+
+      if (reportText.trim().length >= 50) {
+        // Text-based PDF: send extracted text
+        message = await anthropic.messages.create({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4096,
+          messages: [
+            { role: "user", content: EXTRACTION_PROMPT + reportText }
+          ],
+        });
+      } else {
+        // Image/scanned PDF: send directly to Claude as document
+        const pdfBase64 = fileBuffer.toString("base64");
+        message = await anthropic.messages.create({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4096,
+          messages: [
+            {
+              role: "user",
+              content: [
+                {
+                  type: "document",
+                  source: {
+                    type: "base64",
+                    media_type: "application/pdf",
+                    data: pdfBase64,
+                  },
+                },
+                { type: "text", text: EXTRACTION_PROMPT }
+              ],
+            }
+          ],
+        });
+      }
     } else {
+      // DOCX: extract text with mammoth
       const mammoth = require("mammoth");
       const result = await mammoth.extractRawText({ buffer: fileBuffer });
-      reportText = result.value;
-    }
+      const reportText = result.value;
 
-    if (!reportText || reportText.trim().length < 50) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: "Could not extract text from file. File may be empty or corrupted." }) };
-    }
+      if (!reportText || reportText.trim().length < 50) {
+        return { statusCode: 400, headers, body: JSON.stringify({ error: "Could not extract text from file. File may be empty or corrupted." }) };
+      }
 
-    // Call Claude API to extract structured data
-    const anthropic = new Anthropic({ apiKey: ANTHROPIC_API_KEY });
-    const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 4096,
-      messages: [
-        { role: "user", content: EXTRACTION_PROMPT + reportText }
-      ],
-    });
+      message = await anthropic.messages.create({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 4096,
+        messages: [
+          { role: "user", content: EXTRACTION_PROMPT + reportText }
+        ],
+      });
+    }
 
     const aiResponse = message.content[0].text.trim();
     let extractedData;
