@@ -21,18 +21,18 @@
       "status": "Underperform"
     },
     "currentBacklog": {
-      "value": "$1,163,628",
-      "target": "$900,000",
+      "value": "$1,164K",
+      "target": "$900K",
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "+$55K",
+      "value": "$55.0K",
       "consecutiveDays": 1,
       "status": "At Risk"
     }
   },
   "recoveryBridge": {
-    "siteBacklog": "$1,163,628",
+    "siteBacklog": "$1,164,000",
     "oemConversion": {
       "reduction": "-$0",
       "totalSegment": "$0",
@@ -43,30 +43,30 @@
       "barWidth": "21%"
     },
     "labConfirmed": {
-      "reduction": "-$50,000",
-      "barWidth": "4%"
+      "reduction": "-$0",
+      "barWidth": "0%"
     },
     "intakeForecast": {
       "addition": "+$214,000",
       "barWidth": "18%"
     },
-    "projectedClosing": "$914,000",
-    "forecastStatus": "Projected Miss",
-    "missAmount": "$14,000",
+    "projectedClosing": "$924,000",
+    "forecastStatus": "On Track",
+    "missAmount": "$24,000",
     "closingBarWidth": "79%"
   },
   "operationalHealth": {
     "workforceReadiness": {
-      "pct": 70,
-      "note": "Running lean - 4 staff out today"
+      "pct": 75,
+      "note": "Steven, Sarah, Abbie, Connor all out"
     },
     "labCapacity": {
       "pct": 85,
-      "note": "Warehouse handling volume within capacity"
+      "note": "Sufficient capacity confirmed by Alissa"
     },
     "warehouseEfficiency": {
-      "pct": 75,
-      "note": "CS inbox rebounded to 70+ orders"
+      "pct": 80,
+      "note": "70 orders in process, 60 waves remaining"
     }
   },
   "supplierCriticalPath": [
@@ -75,12 +75,12 @@
       "status": "Critical",
       "statusColor": "rose",
       "timeline": "22 pieces delayed",
-      "detail": "$109K held in customs, Duane unresponsive"
+      "detail": "$109K held in customs clearance"
     },
     {
-      "name": "Bethel",
-      "status": "At Risk",
-      "statusColor": "amber",
+      "name": "Bethel Supply",
+      "status": "Delayed",
+      "statusColor": "rose",
       "timeline": "End of next week",
       "detail": "200 units PO placed, won't meet China order timing"
     },
@@ -88,41 +88,41 @@
       "name": "RDSI Holds",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "Pending response",
-      "detail": "Multiple account holds, need Bryan approval for China"
+      "timeline": "Pending responses",
+      "detail": "Multiple account holds require Bryan approval"
     }
   ],
   "narrative": {
-    "quote": "Backlog increased $55K to $1.16M as shipments missed plan by $27K while incoming orders hit $214K. FedEx clearance delays holding $109K in 22 pieces with primary contact unresponsive, and staffing running lean with four people out today.",
+    "quote": "Backlog grew $55K to $1.16M as shipments missed plan by $27K while incoming orders hit $214K. FedEx clearance delays are holding $109K in 22 pieces with no resolution timeline from primary contacts.",
     "operationalRealities": [
       {
-        "title": "Shipment Execution Gap",
+        "title": "Staffing Constraints",
+        "detail": "Four key staff members out today creating capacity pressure across warehouse and customer service"
+      },
+      {
+        "title": "Hold Management",
         "detail": "$20K in preventable in-stock holds blocked same-day execution"
       },
       {
-        "title": "Clearance Crisis",
-        "detail": "22 FedEx pieces totaling $109K delayed in customs with unresponsive primary contact"
-      },
-      {
-        "title": "Staffing Strain",
-        "detail": "Four key staff out today but warehouse confirmed capacity adequate for current volume"
+        "title": "Supply Chain Delays",
+        "detail": "FedEx clearance issues and Bethel timing misses impacting fulfillment capability"
       }
     ],
     "strategyUpdates": [
-      "In-transit pipeline of $240K provides adequate supply pipeline, but clearance delays threaten timely processing of inbound volume requiring immediate escalation through backup contacts.",
-      "Order entry pressure continues above $200K making structural backlog burn difficult, while preventable holds continue to impact same-day ship rates requiring process tightening."
+      "Warehouse team confirmed sufficient capacity for current volume despite staffing shortages, with Alissa Moreno managing dock operations effectively.",
+      "Customer service inbox rebounded to 70+ requiring continued monitoring as order entry pressure remains above $200K daily."
     ]
   },
   "actionItems": [
     {
-      "task": "Provide FedEx clearance status update including Brad and Peter response",
+      "task": "Provide FedEx clearance status update including Brad and Peter responses",
       "owner": "Kayla Hanks",
       "impact": "Backlog",
       "impactType": "backlog",
       "deadline": "MAR 19 8:00 AM",
       "status": "Pending",
-      "tag": "New (3/18)",
-      "tagType": "new",
+      "tag": "Strategic Priority",
+      "tagType": "carryover",
       "priority": true
     },
     {
@@ -143,23 +143,23 @@
       "impactType": "otd",
       "deadline": "MAR 19",
       "status": "Pending",
-      "tag": "New (3/18)",
-      "tagType": "new",
-      "priority": false
+      "tag": "Strategic Priority",
+      "tagType": "carryover",
+      "priority": true
     },
     {
-      "task": "Continue RDSI hold outreach and report results",
+      "task": "Continue RDSI hold outreach and report results by Thursday AM",
       "owner": "Katelyn Meer",
       "impact": "Backlog",
       "impactType": "backlog",
-      "deadline": "MAR 19 MID",
+      "deadline": "MAR 19",
       "status": "Pending",
-      "tag": "New (3/18)",
-      "tagType": "new",
+      "tag": "In Progress",
+      "tagType": "carryover",
       "priority": false
     },
     {
-      "task": "Confirm end-of-day ship total vs. $190K plan",
+      "task": "Confirm end-of-day ship total vs $190K plan",
       "owner": "Nicole Sardo",
       "impact": "OTD Accur.",
       "impactType": "otd",
@@ -172,8 +172,17 @@
   ],
   "history": [
     {
-      "date": "March 17, 2026",
+      "date": "March 18, 2026",
       "label": "Latest",
+      "shipped": "$163K",
+      "mtdOTD": "89.9%",
+      "health": "77%",
+      "backlogChange": "-$1162.5K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 17, 2026",
+      "label": null,
       "shipped": "$279K",
       "mtdOTD": "83.4%",
       "health": "77%",
@@ -204,15 +213,6 @@
       "shipped": "$103.8K",
       "mtdOTD": "82.0%",
       "health": "73%",
-      "backlogChange": "-$0.0K",
-      "backlogDirection": "down"
-    },
-    {
-      "date": "March 16, 2026",
-      "label": null,
-      "shipped": "$103.8K",
-      "mtdOTD": "82.0%",
-      "health": "75%",
       "backlogChange": "-$0.0K",
       "backlogDirection": "down"
     }
