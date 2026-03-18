@@ -1,5 +1,59 @@
 [
   {
+    "timestamp": "2026-03-18T22:18:49.913Z",
+    "fromDate": "2026-03-18",
+    "toDate": "2026-03-18",
+    "fileName": "03-18 Denver Executive Summary.pdf",
+    "changeCount": 9,
+    "changes": [
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,163,628",
+        "to": "$1,164K"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "+$55K",
+        "to": "$55.0K"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,163,628",
+        "to": "$1,164,000"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$914,000",
+        "to": "$924,000"
+      },
+      {
+        "field": "recoveryBridge.forecastStatus",
+        "from": "Projected Miss",
+        "to": "On Track"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "70%",
+        "to": "75%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "75%",
+        "to": "80%"
+      },
+      {
+        "field": "actionItems",
+        "from": "5 items",
+        "to": "5 items (2 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "FedEx Clearance:Critical,Bethel:At Risk,RDSI Holds:At Risk",
+        "to": "FedEx Clearance:Critical,Bethel Supply:Delayed,RDSI Holds:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-18T22:14:44.964Z",
     "fromDate": "2026-03-17",
     "toDate": "2026-03-18",
