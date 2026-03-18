@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "reportDate": "2026-03-17",
+    "dataPull": "Mar 17, 5:53 PM CT",
+    "week": "Week 4",
+    "planPhase": "WEEK 4 TRIAGE PLAN",
+    "reportRef": "3/17/26 Reporting",
+    "footerDate": "March 17, 2026",
+    "stockPrice": "$53.89"
+  },
+  "kpis": {
+    "shippedYesterday": {
+      "value": "$279K",
+      "date": "3/16",
+      "target": "$305K",
+      "status": "Underperform"
+    },
+    "mtdOTD": {
+      "value": "83.4%",
+      "target": "95.0%",
+      "status": "At Risk"
+    },
+    "currentBacklog": {
+      "value": "$1,108,586",
+      "target": "$900,000",
+      "status": "At Risk"
+    },
+    "netDailyBurn": {
+      "value": "$178K",
+      "consecutiveDays": 2,
+      "status": "On Track"
+    }
+  },
+  "recoveryBridge": {
+    "siteBacklog": "$1,108,586",
+    "oemConversion": {
+      "reduction": "-$0",
+      "totalSegment": "$0",
+      "barWidth": "0%"
+    },
+    "supplierInTransit": {
+      "reduction": "-$246K",
+      "barWidth": "22%"
+    },
+    "labConfirmed": {
+      "reduction": "-$27K",
+      "barWidth": "2%"
+    },
+    "intakeForecast": {
+      "addition": "+$200K",
+      "barWidth": "18%"
+    },
+    "projectedClosing": "$800K",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$208K",
+    "closingBarWidth": "72%"
+  },
+  "operationalHealth": {
+    "workforceReadiness": {
+      "pct": 75,
+      "note": "Connor out 3/17-18, jury duty affecting lab"
+    },
+    "labCapacity": {
+      "pct": 70,
+      "note": "Reduced capacity, antibody releases pushed to April"
+    },
+    "warehouseEfficiency": {
+      "pct": 85,
+      "note": "Vial processing complete, labeling in progress"
+    }
+  },
+  "supplierCriticalPath": [
+    {
+      "name": "Bethel",
+      "status": "Critical",
+      "statusColor": "rose",
+      "timeline": "2 weeks delay",
+      "detail": "QC failure on $22K order, remediation in progress"
+    },
+    {
+      "name": "Customs Clearance",
+      "status": "Delayed",
+      "statusColor": "rose",
+      "timeline": "1-2 days",
+      "detail": "$116K held in manual review"
+    },
+    {
+      "name": "Abcam/Abnova",
+      "status": "On Track",
+      "statusColor": "emerald",
+      "timeline": "Expedited",
+      "detail": "$7K shipment confirmed by Nicole Gray"
+    }
+  ],
+  "narrative": {
+    "quote": "Strong rebound to 91% OTD after Monday's challenges, but backlog remains elevated at $1.1M with supplier delays creating headwinds. We need accelerated inbound and hold resolution to sustain the positive momentum.",
+    "operationalRealities": [
+      {
+        "title": "Supply Gap",
+        "detail": "~$50K daily gap between available supply ($140K) and target outbound ($190K)"
+      },
+      {
+        "title": "Credit Holds",
+        "detail": "$7.5K Bruker order held for credit limit, Finance case pending response"
+      },
+      {
+        "title": "Same-Day Performance",
+        "detail": "28% same-day ship rate with 4:00 PM cutoff driving urgency"
+      }
+    ],
+    "strategyUpdates": [
+      "Purchasing coverage adjusted with Connor out through 3/18, Katy Rose and Nicole Gray covering all supplier follow-up and PO confirmations with focus on high-value backorder expediting.",
+      "Process improvement initiative underway with Alissa Moreno building case to remove catalog numbers from kit components to reduce labeling time, pending Quality alignment on customer confusion risk."
+    ]
+  },
+  "actionItems": [
+    {
+      "task": "Call Bethel contact (Chris) and obtain written recovery plan with date",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Resolve or escalate all 19 clearance-held tracking numbers",
+      "owner": "Kayla Hanks",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Follow up with Accounting on credit hold case",
+      "owner": "Katelyn Meer",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17 MID",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm all available inventory stocked before 4:00 PM cutoff",
+      "owner": "Alissa Moreno",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 17 EOD",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Deliver finalized FedEx/logistics file and arrival visibility",
+      "owner": "Kayla Hanks",
+      "impact": "Efficiency",
+      "impactType": "unknown",
+      "deadline": "MAR 17 EOD",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Send updated backlog burn report to distribution list",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17 EOD",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm priority supplier call list",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 17 EOD",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Complete catalog number change proposal with Quality alignment path",
+      "owner": "Alissa Moreno",
+      "impact": "Efficiency",
+      "impactType": "unknown",
+      "deadline": "MAR 20",
+      "status": "Pending",
+      "tag": "New (3/17)",
+      "tagType": "new",
+      "priority": false
+    }
+  ],
+  "history": [
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "73%",
+      "backlogChange": "-$178.9K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "67%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "73%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "75%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "70%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    }
+  ]
+}
