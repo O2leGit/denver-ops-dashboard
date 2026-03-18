@@ -1,5 +1,69 @@
 [
   {
+    "timestamp": "2026-03-18T12:18:25.439Z",
+    "fromDate": "2026-03-16",
+    "toDate": "2026-03-17",
+    "fileName": "03-16 Executive Summary.pdf",
+    "changeCount": 11,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$103,752",
+        "to": "$279K"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "82.0%",
+        "to": "83.4%"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,287,466",
+        "to": "$1,108,586"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "-$148.7K",
+        "to": "$178K"
+      },
+      {
+        "field": "kpis.netDailyBurn.status",
+        "from": "At Risk",
+        "to": "On Track"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,287,466",
+        "to": "$1,108,586"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$970,000",
+        "to": "$800K"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "75%",
+        "to": "70%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "70%",
+        "to": "85%"
+      },
+      {
+        "field": "actionItems",
+        "from": "5 items",
+        "to": "8 items (8 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "SuperBioChips Laboratories:Delayed,Bio-Rad UK:Critical,Vector Labs:At Risk,GeneTex:On Track",
+        "to": "Bethel:Critical,Customs Clearance:Delayed,Abcam/Abnova:On Track"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-17T13:11:43.129Z",
     "fromDate": "2026-03-16",
     "toDate": "2026-03-16",
