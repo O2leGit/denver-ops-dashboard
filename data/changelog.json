@@ -1,5 +1,79 @@
 [
   {
+    "timestamp": "2026-03-18T22:14:44.964Z",
+    "fromDate": "2026-03-17",
+    "toDate": "2026-03-18",
+    "fileName": "03-18 Denver Executive Summary.pdf",
+    "changeCount": 13,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$279K",
+        "to": "$163K"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "83.4%",
+        "to": "89.9%"
+      },
+      {
+        "field": "kpis.mtdOTD.status",
+        "from": "At Risk",
+        "to": "Underperform"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,108,586",
+        "to": "$1,163,628"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "$178K",
+        "to": "+$55K"
+      },
+      {
+        "field": "kpis.netDailyBurn.status",
+        "from": "On Track",
+        "to": "At Risk"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,108,586",
+        "to": "$1,163,628"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$800K",
+        "to": "$914,000"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "75%",
+        "to": "70%"
+      },
+      {
+        "field": "operationalHealth.labCapacity",
+        "from": "70%",
+        "to": "85%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "85%",
+        "to": "75%"
+      },
+      {
+        "field": "actionItems",
+        "from": "8 items",
+        "to": "5 items (5 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "Bethel:Critical,Customs Clearance:Delayed,Abcam/Abnova:On Track",
+        "to": "FedEx Clearance:Critical,Bethel:At Risk,RDSI Holds:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-18T12:18:25.439Z",
     "fromDate": "2026-03-16",
     "toDate": "2026-03-17",
