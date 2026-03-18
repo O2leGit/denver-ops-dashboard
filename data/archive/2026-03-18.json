@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "reportDate": "2026-03-18",
+    "dataPull": "Mar 18, 5:12 PM CT",
+    "week": "Week 4",
+    "planPhase": "WEEK 4 TRIAGE PLAN",
+    "reportRef": "3/18/26 Reporting",
+    "footerDate": "March 18, 2026",
+    "stockPrice": "$53.89"
+  },
+  "kpis": {
+    "shippedYesterday": {
+      "value": "$163K",
+      "date": "3/17",
+      "target": "$190K",
+      "status": "Underperform"
+    },
+    "mtdOTD": {
+      "value": "89.9%",
+      "target": "95.0%",
+      "status": "Underperform"
+    },
+    "currentBacklog": {
+      "value": "$1,163,628",
+      "target": "$900,000",
+      "status": "At Risk"
+    },
+    "netDailyBurn": {
+      "value": "+$55K",
+      "consecutiveDays": 1,
+      "status": "At Risk"
+    }
+  },
+  "recoveryBridge": {
+    "siteBacklog": "$1,163,628",
+    "oemConversion": {
+      "reduction": "-$0",
+      "totalSegment": "$0",
+      "barWidth": "0%"
+    },
+    "supplierInTransit": {
+      "reduction": "-$240,000",
+      "barWidth": "21%"
+    },
+    "labConfirmed": {
+      "reduction": "-$50,000",
+      "barWidth": "4%"
+    },
+    "intakeForecast": {
+      "addition": "+$214,000",
+      "barWidth": "18%"
+    },
+    "projectedClosing": "$914,000",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$14,000",
+    "closingBarWidth": "79%"
+  },
+  "operationalHealth": {
+    "workforceReadiness": {
+      "pct": 70,
+      "note": "Running lean - 4 staff out today"
+    },
+    "labCapacity": {
+      "pct": 85,
+      "note": "Warehouse handling volume within capacity"
+    },
+    "warehouseEfficiency": {
+      "pct": 75,
+      "note": "CS inbox rebounded to 70+ orders"
+    }
+  },
+  "supplierCriticalPath": [
+    {
+      "name": "FedEx Clearance",
+      "status": "Critical",
+      "statusColor": "rose",
+      "timeline": "22 pieces delayed",
+      "detail": "$109K held in customs, Duane unresponsive"
+    },
+    {
+      "name": "Bethel",
+      "status": "At Risk",
+      "statusColor": "amber",
+      "timeline": "End of next week",
+      "detail": "200 units PO placed, won't meet China order timing"
+    },
+    {
+      "name": "RDSI Holds",
+      "status": "At Risk",
+      "statusColor": "amber",
+      "timeline": "Pending response",
+      "detail": "Multiple account holds, need Bryan approval for China"
+    }
+  ],
+  "narrative": {
+    "quote": "Backlog increased $55K to $1.16M as shipments missed plan by $27K while incoming orders hit $214K. FedEx clearance delays holding $109K in 22 pieces with primary contact unresponsive, and staffing running lean with four people out today.",
+    "operationalRealities": [
+      {
+        "title": "Shipment Execution Gap",
+        "detail": "$20K in preventable in-stock holds blocked same-day execution"
+      },
+      {
+        "title": "Clearance Crisis",
+        "detail": "22 FedEx pieces totaling $109K delayed in customs with unresponsive primary contact"
+      },
+      {
+        "title": "Staffing Strain",
+        "detail": "Four key staff out today but warehouse confirmed capacity adequate for current volume"
+      }
+    ],
+    "strategyUpdates": [
+      "In-transit pipeline of $240K provides adequate supply pipeline, but clearance delays threaten timely processing of inbound volume requiring immediate escalation through backup contacts.",
+      "Order entry pressure continues above $200K making structural backlog burn difficult, while preventable holds continue to impact same-day ship rates requiring process tightening."
+    ]
+  },
+  "actionItems": [
+    {
+      "task": "Provide FedEx clearance status update including Brad and Peter response",
+      "owner": "Kayla Hanks",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 19 8:00 AM",
+      "status": "Pending",
+      "tag": "New (3/18)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Confirm China order status and communicate Bethyl ETA to sales team",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 19 EOD",
+      "status": "Pending",
+      "tag": "New (3/18)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Validate all in-stock holds cleared daily before 3:30PM",
+      "owner": "Katelyn Meer",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 19",
+      "status": "Pending",
+      "tag": "New (3/18)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Continue RDSI hold outreach and report results",
+      "owner": "Katelyn Meer",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 19 MID",
+      "status": "Pending",
+      "tag": "New (3/18)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm end-of-day ship total vs. $190K plan",
+      "owner": "Nicole Sardo",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 18 EOD",
+      "status": "Pending",
+      "tag": "New (3/18)",
+      "tagType": "new",
+      "priority": false
+    }
+  ],
+  "history": [
+    {
+      "date": "March 17, 2026",
+      "label": null,
+      "shipped": "$279K",
+      "mtdOTD": "83.4%",
+      "health": "77%",
+      "backlogChange": "+$55.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "73%",
+      "backlogChange": "-$178.9K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "67%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "73%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 16, 2026",
+      "label": null,
+      "shipped": "$103.8K",
+      "mtdOTD": "82.0%",
+      "health": "75%",
+      "backlogChange": "-$0.0K",
+      "backlogDirection": "down"
+    }
+  ]
+}
