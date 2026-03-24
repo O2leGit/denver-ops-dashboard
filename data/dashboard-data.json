@@ -1,171 +1,182 @@
 {
   "meta": {
-    "reportDate": "2026-03-18",
-    "dataPull": "Mar 18, 5:12 PM CT",
-    "week": "Week 4",
-    "planPhase": "WEEK 4 TRIAGE PLAN",
-    "reportRef": "3/18/26 Reporting",
-    "footerDate": "March 18, 2026",
+    "reportDate": "2026-03-23",
+    "dataPull": "Mar 23, 5:28 PM CT",
+    "week": "Week 5",
+    "planPhase": "WEEK 5 TRIAGE PLAN",
+    "reportRef": "3/23/26 Reporting",
+    "footerDate": "March 23, 2026",
     "stockPrice": "$53.89"
   },
   "kpis": {
     "shippedYesterday": {
-      "value": "$163K",
-      "date": "3/17",
-      "target": "$190K",
-      "status": "Underperform"
+      "value": "$109,928",
+      "date": "3/20",
+      "target": "$92,000",
+      "status": "Optimal"
     },
     "mtdOTD": {
-      "value": "89.9%",
+      "value": "83.7%",
       "target": "95.0%",
-      "status": "Underperform"
+      "status": "At Risk"
     },
     "currentBacklog": {
-      "value": "$1,164K",
-      "target": "$900K",
+      "value": "$1,328,729",
+      "target": "$900,000",
       "status": "At Risk"
     },
     "netDailyBurn": {
-      "value": "+$55K",
-      "consecutiveDays": 1,
+      "value": "+$107K",
+      "consecutiveDays": 4,
       "status": "At Risk"
     }
   },
   "recoveryBridge": {
-    "siteBacklog": "$1,164K",
+    "siteBacklog": "$1,328,729",
     "oemConversion": {
-      "reduction": "-$240K",
-      "totalSegment": "$240K",
-      "barWidth": "21%"
+      "reduction": "-$0",
+      "totalSegment": "$0",
+      "barWidth": "0%"
     },
     "supplierInTransit": {
-      "reduction": "-$240K",
-      "barWidth": "21%"
+      "reduction": "-$306,000",
+      "barWidth": "23%"
     },
     "labConfirmed": {
-      "reduction": "-$50K",
-      "barWidth": "4%"
+      "reduction": "-$42,000",
+      "barWidth": "3%"
     },
     "intakeForecast": {
-      "addition": "+$214K",
-      "barWidth": "18%"
+      "addition": "+$339,000",
+      "barWidth": "26%"
     },
-    "projectedClosing": "$924K",
-    "forecastStatus": "On Track",
-    "missAmount": "$24K",
-    "closingBarWidth": "79%"
+    "projectedClosing": "$980,729",
+    "forecastStatus": "Projected Miss",
+    "missAmount": "$80,729",
+    "closingBarWidth": "74%"
   },
   "operationalHealth": {
     "workforceReadiness": {
-      "pct": 75,
-      "note": "Steven, Sarah, Abbie, Connor all out"
+      "pct": 95,
+      "note": "full team aligned, no additional pack support required"
     },
     "labCapacity": {
       "pct": 85,
-      "note": "Warehouse operating within capacity"
+      "note": "lab team pulled 90 production orders (~$42K)"
     },
     "warehouseEfficiency": {
-      "pct": 80,
-      "note": "70+ orders in process, manageable volume"
+      "pct": 100,
+      "note": "Friday OTD 100%, 427 shipments on track"
     }
   },
   "supplierCriticalPath": [
     {
-      "name": "FedEx Clearance",
+      "name": "Bethyl (Fortis)",
       "status": "Critical",
       "statusColor": "rose",
-      "timeline": "22 pieces delayed",
-      "detail": "$109K held in customs, Duane unresponsive"
+      "timeline": "delayed to 3/26",
+      "detail": "$22K order delayed due to QC/rework, creates production risk"
     },
     {
-      "name": "Bethel",
+      "name": "Elab",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "End of next week",
-      "detail": "200 units ordered, won't arrive for China order"
+      "timeline": "follow-up required",
+      "detail": "delayed supplier orders, POs placed Friday need ETA confirmation"
     },
     {
-      "name": "RDSI Holdings",
+      "name": "Customs Clearance",
       "status": "At Risk",
       "statusColor": "amber",
-      "timeline": "Awaiting response",
-      "detail": "Multiple account holds, need Bryan approval"
+      "timeline": "27 pieces pending",
+      "detail": "$138K worth of items under customs review"
     }
   ],
   "narrative": {
-    "quote": "Backlog increased $55K to $1.16M as shipments missed plan by $27K while incoming orders hit $214K. FedEx clearance delays are holding $109K in 22 pieces with no response from primary contact.",
+    "quote": "Despite strong Friday shipping at $109,928 and Monday's projected $339K burn, we face 4 consecutive days where incoming orders exceed outbound shipments, pushing backlog to $1.33M. Critical supplier delays with Bethyl creating direct production risk.",
     "operationalRealities": [
       {
-        "title": "Preventable Shortfall",
-        "detail": "$20K of in-stock orders blocked on internal holds prevented same-day execution"
+        "title": "Incoming Orders Outpacing Shipments",
+        "detail": "Four consecutive days of negative burn rate with Friday showing +$107K net backlog increase"
       },
       {
-        "title": "Staffing Challenges",
-        "detail": "Four key staff out today but warehouse confirmed sufficient capacity"
+        "title": "Warehouse Execution Strong",
+        "detail": "Friday achieved 100% OTD with 427 Monday shipments confirmed, no additional pack support needed"
       },
       {
-        "title": "Order Entry Pressure",
-        "detail": "Incoming orders above $200K making backlog burn structurally difficult"
+        "title": "Critical Supplier Delays",
+        "detail": "Bethyl $22K order delayed to 3/26 due to QC issues, creating direct production risk"
       }
     ],
     "strategyUpdates": [
-      "High incoming order volume continues to challenge backlog reduction efforts, requiring more aggressive hold clearance and same-day processing.",
-      "FedEx clearance crisis with $109K delayed requires escalation beyond primary contacts to prevent further backlog accumulation."
+      "New receiving/stocking process piloted with receiver inputting location directly into AX while stocker focuses on physical placement only, though lot number visibility gap identified requiring immediate solution.",
+      "Aggressive Monday ship plan targeting $339K through combination of $164K in stock, $83K incoming, $42K COD manufacturing, and $50K projected same-day orders - potentially the strongest single-day burn of the month."
     ]
   },
   "actionItems": [
     {
-      "task": "Provide FedEx clearance status update including Brad and Peter responses",
-      "owner": "Kayla Hanks",
-      "impact": "Backlog Reduction",
-      "impactType": "backlog",
-      "deadline": "MAR 19 8:00 AM",
-      "status": "Pending",
-      "tag": "New (3/18)",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Validate all in-stock holds cleared daily before 3:30PM",
-      "owner": "Katelyn Meer",
-      "impact": "OTD Accuracy",
-      "impactType": "otd",
-      "deadline": "Daily 3:30 PM",
-      "status": "Pending",
-      "tag": "Strategic Priority",
-      "tagType": "new",
-      "priority": true
-    },
-    {
-      "task": "Confirm China order status and communicate Bethyl ETA to sales team",
-      "owner": "Danielle Coonrod",
-      "impact": "Customer Service",
+      "task": "Monitor and report on new stocking process effectiveness",
+      "owner": "Alissa Moreno",
+      "impact": "Efficiency",
       "impactType": "unknown",
-      "deadline": "MAR 19 EOD",
+      "deadline": "MAR 24 EOD",
       "status": "Pending",
-      "tag": "New (3/18)",
+      "tag": "New (3/23)",
       "tagType": "new",
       "priority": false
     },
     {
-      "task": "Continue RDSI hold outreach and report results",
-      "owner": "Katelyn Meer",
-      "impact": "Backlog Reduction",
-      "impactType": "backlog",
-      "deadline": "MAR 19 AM",
+      "task": "Drive solution for lot number visibility gap in new receiving process",
+      "owner": "Matt Hagerty",
+      "impact": "Efficiency",
+      "impactType": "unknown",
+      "deadline": "MAR 25",
       "status": "Pending",
-      "tag": "In Progress",
-      "tagType": "carryover",
+      "tag": "New (3/23)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Update backlog tracking daily and confirm MTD OTD in morning email",
+      "owner": "Danielle Coonrod",
+      "impact": "OTD Accur.",
+      "impactType": "otd",
+      "deadline": "MAR 24",
+      "status": "Pending",
+      "tag": "New (3/23)",
+      "tagType": "new",
       "priority": false
     },
     {
-      "task": "Confirm end-of-day ship total vs $190K plan",
-      "owner": "Nicole Sardo",
-      "impact": "Performance Tracking",
-      "impactType": "otd",
-      "deadline": "MAR 18 EOD",
+      "task": "Contact customer Renna on 71-line cancellation request and report back with recommendation",
+      "owner": "Katelyn Meer",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 24",
       "status": "Pending",
-      "tag": "New (3/18)",
+      "tag": "New (3/23)",
+      "tagType": "new",
+      "priority": false
+    },
+    {
+      "task": "Confirm Bethyl $6K PO availability and continue supplier ETA follow-up",
+      "owner": "Danielle Coonrod",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 24",
+      "status": "Pending",
+      "tag": "New (3/23)",
+      "tagType": "new",
+      "priority": true
+    },
+    {
+      "task": "Provide clearance delay status update on all 27 pieces",
+      "owner": "Kayla Hanks",
+      "impact": "Backlog",
+      "impactType": "backlog",
+      "deadline": "MAR 24 EOD",
+      "status": "Pending",
+      "tag": "New (3/23)",
       "tagType": "new",
       "priority": false
     }
@@ -174,6 +185,15 @@
     {
       "date": "March 18, 2026",
       "label": "Latest",
+      "shipped": "$163K",
+      "mtdOTD": "89.9%",
+      "health": "80%",
+      "backlogChange": "+$1327.6K",
+      "backlogDirection": "down"
+    },
+    {
+      "date": "March 18, 2026",
+      "label": null,
       "shipped": "$163K",
       "mtdOTD": "89.9%",
       "health": "80%",
@@ -205,15 +225,6 @@
       "mtdOTD": "82.0%",
       "health": "73%",
       "backlogChange": "-$178.9K",
-      "backlogDirection": "down"
-    },
-    {
-      "date": "March 16, 2026",
-      "label": null,
-      "shipped": "$103.8K",
-      "mtdOTD": "82.0%",
-      "health": "67%",
-      "backlogChange": "-$0.0K",
       "backlogDirection": "down"
     }
   ]
