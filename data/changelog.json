@@ -1,5 +1,79 @@
 [
   {
+    "timestamp": "2026-03-24T02:33:30.191Z",
+    "fromDate": "2026-03-18",
+    "toDate": "2026-03-23",
+    "fileName": "03-23 Denver Executive Summary.pdf",
+    "changeCount": 13,
+    "changes": [
+      {
+        "field": "kpis.shippedYesterday",
+        "from": "$163K",
+        "to": "$109,928"
+      },
+      {
+        "field": "kpis.shippedYesterday.status",
+        "from": "Underperform",
+        "to": "Optimal"
+      },
+      {
+        "field": "kpis.mtdOTD",
+        "from": "89.9%",
+        "to": "83.7%"
+      },
+      {
+        "field": "kpis.mtdOTD.status",
+        "from": "Underperform",
+        "to": "At Risk"
+      },
+      {
+        "field": "kpis.currentBacklog",
+        "from": "$1,164K",
+        "to": "$1,328,729"
+      },
+      {
+        "field": "kpis.netDailyBurn",
+        "from": "+$55K",
+        "to": "+$107K"
+      },
+      {
+        "field": "recoveryBridge.siteBacklog",
+        "from": "$1,164K",
+        "to": "$1,328,729"
+      },
+      {
+        "field": "recoveryBridge.projectedClosing",
+        "from": "$924K",
+        "to": "$980,729"
+      },
+      {
+        "field": "recoveryBridge.forecastStatus",
+        "from": "On Track",
+        "to": "Projected Miss"
+      },
+      {
+        "field": "operationalHealth.workforceReadiness",
+        "from": "75%",
+        "to": "95%"
+      },
+      {
+        "field": "operationalHealth.warehouseEfficiency",
+        "from": "80%",
+        "to": "100%"
+      },
+      {
+        "field": "actionItems",
+        "from": "5 items",
+        "to": "6 items (6 new)"
+      },
+      {
+        "field": "supplierCriticalPath",
+        "from": "FedEx Clearance:Critical,Bethel:At Risk,RDSI Holdings:At Risk",
+        "to": "Bethyl (Fortis):Critical,Elab:At Risk,Customs Clearance:At Risk"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-03-18T22:21:30.086Z",
     "fromDate": "2026-03-18",
     "toDate": "2026-03-18",
